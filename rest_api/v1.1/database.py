@@ -67,7 +67,8 @@ def init_db():
                     piezas_peque INT DEFAULT 0,
                     piezas_grandes INT DEFAULT 0,
                     tiempo_peque INT DEFAULT 0,
-                    tiempo_grande INT DEFAULT 0
+                    tiempo_grande INT DEFAULT 0,
+                    posicion_inicial TEXT DEFAULT NULL
                 )
             ''')
             print("Tabla Robot creada.")
