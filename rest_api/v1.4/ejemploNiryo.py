@@ -43,12 +43,12 @@ def controlSensorDI5():
     # Genera aleatoriamente "HIGH" o "LOW"
     estado = random.choice(["HIGH", "LOW"])
     return estado
-    '''
+    
     if robot.digital_read(sensorDI5) == PinState.HIGH:
         return "HIGH"
     else:
         return "LOW"
-    '''
+    
 
 def mover_cinta(velocidad, direccion):
     print(f"No hago nada, pero tengo {direccion} y {velocidad} :)")
@@ -61,24 +61,24 @@ def mover_cinta(velocidad, direccion):
 
 def parar_cinta():
     print("No hago nada x2 :)")
-    '''
+    
     robot.stop_conveyor(conveyor_id)
-    '''
+    
 
 def control_herramienta(accion):
     print(f"{accion} herramienta")
-    '''
+    
     if (accion == 'activar'):
         robot.activate_tool()
     else:
         robot.deactivate_tool()
-    '''
+    
 
 def mover_robot(x, y, z, roll, pitch, yaw):
     print(f"Moviendo robot a: {x}, {y}, {z}, {roll}, {pitch}, {yaw}")
-    '''
+    
     robot.move_joints(x, y, z, roll, pitch, yaw)
-    '''
+    
 
 # ESTA PARTE ES EXCLUSIVA DEL MODO AUTOMÁTICO
 import threading
