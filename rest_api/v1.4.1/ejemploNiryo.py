@@ -51,19 +51,26 @@ def controlSensorDI5():
     '''
 
 def mover_cinta(velocidad, direccion):
-    print(f"No hago nada, pero tengo {direccion} y {velocidad} :)")
     '''
+    Controla el movimiento de la cinta transportadora en la dirección y velocidad especificadas.
+    '''
+    global robot, conveyor_id
     if direccion == 'forward':
+        print(f"Moviendo cinta hacia adelante con velocidad {velocidad}")
         robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.FORWARD)
     elif direccion == 'backward':
+        print(f"Moviendo cinta hacia atrás con velocidad {velocidad}")
         robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.BACKWARD)
-    '''
+    else:
+        print("Dirección no válida. Use 'forward' o 'backward'.")
 
 def parar_cinta():
-    print("No hago nada x2 :)")
     '''
+    Detiene la cinta transportadora.
+    '''
+    global robot, conveyor_id
+    print("Deteniendo la cinta transportadora")
     robot.stop_conveyor(conveyor_id)
-    '''
 
 def control_herramienta(accion):
     print(f"{accion} herramienta")
