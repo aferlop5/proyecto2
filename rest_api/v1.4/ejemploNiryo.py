@@ -1,4 +1,4 @@
-# from pyniryo import * 
+from pyniryo import * 
 import random #borrar 
 from datetime import time
 import time
@@ -10,34 +10,34 @@ conveyor_id = None
 
 def init():
     print("Hola desde init()")
-    '''global robot, sensorDI5, sensorDI1, conveyor_id
+    global robot, sensorDI5, sensorDI1, conveyor_id
     robot = NiryoRobot("localhost")
     robot.calibrate_auto()
     robot.update_tool()
     sensorDI5 = PinID.DI5
     sensorDI1 = PinID.DI1
     conveyor_id = robot.set_conveyor()
-    '''
+    
 
 def exitNiryo():
     print("Adiós desde exit()")
-    '''
+    
     global robot, conveyor_id
     if robot is not None:
         robot.unset_conveyor(conveyor_id)
         robot.close_connection()
-    '''
+    
 
 def controlSensorDI1():
     # Genera aleatoriamente "HIGH" o "LOW"
     estado = random.choice(["HIGH", "LOW"])
     return estado
-    '''
+
     if robot.digital_read(sensorDI1) == PinState.HIGH:
         return "HIGH"
     else:
         return "LOW"
-    '''
+    
 
 def controlSensorDI5():
     # Genera aleatoriamente "HIGH" o "LOW"
@@ -52,12 +52,12 @@ def controlSensorDI5():
 
 def mover_cinta(velocidad, direccion):
     print(f"No hago nada, pero tengo {direccion} y {velocidad} :)")
-    '''
+    
     if direccion == 'forward':
         robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.FORWARD)
     elif direccion == 'backward':
         robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.BACKWARD)
-    '''
+    
 
 def parar_cinta():
     print("No hago nada x2 :)")
