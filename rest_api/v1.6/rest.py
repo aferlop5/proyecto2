@@ -2,7 +2,11 @@ from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from functools import wraps
-from ejemploNiryo import controlSensorDI1, controlSensorDI5, mover_cinta, parar_cinta, control_herramienta, mover_robot, controlar_pausa, automatico, modo_automatico, init, exitNiryo, robot
+from control import (
+    controlSensorDI1, controlSensorDI5, mover_cinta, parar_cinta,
+    control_herramienta, mover_robot, controlar_pausa, automatico,
+    modo_automatico, init, exitNiryo, robot
+)
 import mysql.connector
 import uuid
 import requests
@@ -37,7 +41,7 @@ CORS(app)
 def get_db_connection():
     return mysql.connector.connect(
         user="root",
-        password="root",
+        password="",
         host="localhost",
         database="robot_data"
     )
@@ -85,11 +89,22 @@ class UsuarioResource(Resource):
                 return {'message': 'Usuario no encontrado'}, 404
             return jsonify(user)
         else:
-            cursor.execute("SELECT * FROM Usuario")
-            usuarios = cursor.fetchall()
+            # Autenticación basada en headers
+            nick = request.headers.get('nick')
+            password = request.headers.get('password')
+
+            if not nick or not password:
+                return {'message': 'Nick y password son requeridos'}, 401
+
+            cursor.execute("SELECT * FROM Usuario WHERE nick = %s AND password = %s", (nick, password))
+            user = cursor.fetchone()
             cursor.close()
             connection.close()
-            return jsonify(usuarios)
+
+            if not user:
+                return {'message': 'Credenciales incorrectas'}, 401
+
+            return jsonify(user)
 
     def post(self):
         data = request.get_json()
