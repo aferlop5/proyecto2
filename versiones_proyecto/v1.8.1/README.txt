@@ -83,7 +83,7 @@ Este proyecto permite controlar un robot Niryo a través de una API REST y una i
 
 1. Configura la base de datos ejecutando `database.py`.
 2. Inicia el servidor Flask con `rest.py`.
-3. Abre `index.html` en un navegador para interactuar con la interfaz.
+3. Abre `index.html` en un navegador para interactuar con la interfaz (python3 -m http.server) y (http://localhost:8000/index.html).
 
 ---
 

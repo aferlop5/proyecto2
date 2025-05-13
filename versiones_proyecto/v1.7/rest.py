@@ -11,29 +11,6 @@ import mysql.connector
 import uuid
 import requests
 
-ID_FILE = "id.txt"
-
-def get_next_id():
-    with open(ID_FILE, "r") as f:
-        current_id = f.read().strip().lower()
-
-    next_id = decrement_id(current_id)
-
-    with open(ID_FILE, "w") as f:
-        f.write(next_id)
-
-    return current_id
-
-def decrement_id(id_str):
-    id_chars = list(id_str)
-    for i in range(len(id_chars)-1, -1, -1):
-        if id_chars[i] > 'a':
-            id_chars[i] = chr(ord(id_chars[i]) - 1)
-            break
-        else:
-            id_chars[i] = 'z'
-    return ''.join(id_chars)
-
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
@@ -55,7 +32,6 @@ def time_to_string(time_obj):
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        # Obtenemos los datos del usuario desde el header (en un escenario real sería más seguro usar JWT o similar)
         user_nick = request.headers.get('nick')
         user_password = request.headers.get('password')
 
@@ -89,7 +65,6 @@ class UsuarioResource(Resource):
                 return {'message': 'Usuario no encontrado'}, 404
             return jsonify(user)
         else:
-            # Autenticación basada en headers
             nick = request.headers.get('nick')
             password = request.headers.get('password')
 
@@ -178,7 +153,6 @@ class UsuarioResource(Resource):
             connection.close()
 
 class VentosaResource(Resource):
-    # Obtener todos los registros de la tabla Ventosa
     @login_required
     def get(self):
         con = get_db_connection()
@@ -187,7 +161,6 @@ class VentosaResource(Resource):
         ventosas = cur.fetchall()
         con.close()
 
-        # Convertir los valores de tiempo a cadenas antes de enviarlos
         for ventosa in ventosas:
             ventosa["tiempo_agarre1"] = time_to_string(ventosa["tiempo_agarre1"])
             ventosa["tiempo_agarre2"] = time_to_string(ventosa["tiempo_agarre2"])
@@ -198,12 +171,9 @@ class VentosaResource(Resource):
 
         return jsonify(ventosas)
 
-    # Crear un nuevo registro en la tabla Ventosa
-    # @login_required
     def post(self):
         data = request.get_json()
 
-        # Validación de campos requeridos
         required_fields = [
             'tiempo_agarre1', 'tiempo_agarre2', 'tiempo_agarre3',
             'tiempo_dejada1', 'tiempo_dejada2', 'tiempo_dejada3', 'usuario_id'
@@ -211,17 +181,13 @@ class VentosaResource(Resource):
         if not all(field in data for field in required_fields):
             return {"message": "Faltan campos requeridos."}, 400
 
-        # Obtener usuario_id desde los datos
         usuario_id = data['usuario_id']
-
-        # Generación de un ID único para la ventosa
-        ventosa_id = get_next_id()
+        ventosa_id = uuid.uuid4().hex
 
         con = get_db_connection()
         cur = con.cursor()
 
         try:
-            # Inserción en la tabla Ventosa
             cur.execute("""
                 INSERT INTO Ventosa (
                     id, usuario_id, 
@@ -246,73 +212,7 @@ class VentosaResource(Resource):
             con.close()
             return {"message": f"Error al crear Ventosa: {str(e)}"}, 500
 
-    # Obtener un registro específico de Ventosa por ID
-    @login_required
-    def get_ventosa(self, ventosa_id):
-        con = get_db_connection()
-        cur = con.cursor(dictionary=True)
-        cur.execute("SELECT * FROM Ventosa WHERE id = %s", (ventosa_id,))
-        ventosa = cur.fetchone()
-        con.close()
-        if ventosa:
-            # Convertir los valores de tiempo a cadenas antes de enviarlos
-            ventosa["tiempo_agarre1"] = time_to_string(ventosa["tiempo_agarre1"])
-            ventosa["tiempo_agarre2"] = time_to_string(ventosa["tiempo_agarre2"])
-            ventosa["tiempo_agarre3"] = time_to_string(ventosa["tiempo_agarre3"])
-            ventosa["tiempo_dejada1"] = time_to_string(ventosa["tiempo_dejada1"])
-            ventosa["tiempo_dejada2"] = time_to_string(ventosa["tiempo_dejada2"])
-            ventosa["tiempo_dejada3"] = time_to_string(ventosa["tiempo_dejada3"])
-
-            return jsonify(ventosa)
-        else:
-            return {"message": "Ventosa no encontrada."}, 404
-
-    # Actualizar un registro específico de Ventosa por ID
-    @login_required
-    def put(self, ventosa_id):
-        data = request.get_json()
-
-        required_fields = ['tiempo_agarre1', 'tiempo_agarre2', 'tiempo_agarre3', 
-                           'tiempo_dejada1', 'tiempo_dejada2', 'tiempo_dejada3']
-        
-        if not all(field in data for field in required_fields):
-            return {"message": "Faltan campos requeridos."}, 400
-        
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            cur.execute(""" 
-                UPDATE Ventosa
-                SET tiempo_agarre1 = %s, tiempo_agarre2 = %s, tiempo_agarre3 = %s,
-                    tiempo_dejada1 = %s, tiempo_dejada2 = %s, tiempo_dejada3 = %s
-                WHERE id = %s
-            """, (data['tiempo_agarre1'], data['tiempo_agarre2'], data['tiempo_agarre3'],
-                  data['tiempo_dejada1'], data['tiempo_dejada2'], data['tiempo_dejada3'], ventosa_id))
-            con.commit()
-            con.close()
-            return {"message": "Ventosa actualizada correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al actualizar ventosa: {str(e)}"}, 500
-
-    # Eliminar un registro específico de Ventosa por ID
-    @login_required
-    def delete(self, ventosa_id):
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            cur.execute("DELETE FROM Ventosa WHERE id = %s", (ventosa_id,))
-            con.commit()
-            con.close()
-            return {"message": "Ventosa eliminada correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al eliminar ventosa: {str(e)}"}, 500
-
 class SensorDI5Resource(Resource):
-    # Obtener todos los registros de la tabla Sensor_DI5
     @login_required
     def get(self):
         con = get_db_connection()
@@ -321,7 +221,6 @@ class SensorDI5Resource(Resource):
         sensores = cur.fetchall()
         con.close()
         
-        # Convertimos los tiempos de la base de datos a string antes de devolverlos
         for sensor in sensores:
             for key in ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3']:
                 if sensor[key]:
@@ -329,27 +228,20 @@ class SensorDI5Resource(Resource):
         
         return jsonify(sensores)
 
-    # Crear un nuevo registro en la tabla Sensor_DI5
-    # @login_required
     def post(self):
         data = request.get_json()
 
-        # Validación de campos
         required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3', 'usuario_id']
         if not all(field in data for field in required_fields):
             return {"message": "Faltan campos requeridos."}, 400
 
-        # Obtener usuario_id desde los datos
         usuario_id = data['usuario_id']
-
-        # Generación de un ID único para el sensor DI5
-        sensor_id = get_next_id()
+        sensor_id = uuid.uuid4().hex
 
         con = get_db_connection()
         cur = con.cursor()
 
         try:
-            # Inserción en la tabla Sensor_DI5
             cur.execute("""
                 INSERT INTO Sensor_DI5 (id, usuario_id, tiempo_deteccion_peque1, tiempo_deteccion_peque2, tiempo_deteccion_peque3)
                 VALUES (%s, %s, %s, %s, %s)
@@ -370,70 +262,6 @@ class SensorDI5Resource(Resource):
             con.close()
             return {"message": f"Error al crear sensor DI5: {str(e)}"}, 500
 
-
-    # Obtener un registro específico de Sensor_DI5 por ID
-    @login_required
-    def get_sensor(self, sensor_id):
-        con = get_db_connection()
-        cur = con.cursor(dictionary=True)
-        cur.execute("SELECT * FROM Sensor_DI5 WHERE id = %s", (sensor_id,))
-        sensor = cur.fetchone()
-        con.close()
-        
-        if sensor:
-            # Convertimos los tiempos a string antes de devolverlos
-            for key in ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3']:
-                if sensor[key]:
-                    sensor[key] = str(sensor[key])
-            return jsonify(sensor)
-        else:
-            return {"message": "Sensor DI5 no encontrado."}, 404
-
-    # Actualizar un registro específico de Sensor_DI5 por ID
-    @login_required
-    def put(self, sensor_id):
-        data = request.get_json()
-
-        required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3']
-        
-        if not all(field in data for field in required_fields):
-            return {"message": "Faltan campos requeridos."}, 400
-        
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            # Convertimos los tiempos a string antes de actualizarlos
-            cur.execute("""
-                UPDATE Sensor_DI5
-                SET tiempo_deteccion_peque1 = %s, tiempo_deteccion_peque2 = %s, tiempo_deteccion_peque3 = %s
-                WHERE id = %s
-            """, (str(data['tiempo_deteccion_peque1']), 
-                  str(data['tiempo_deteccion_peque2']), 
-                  str(data['tiempo_deteccion_peque3']), 
-                  sensor_id))
-            con.commit()
-            con.close()
-            return {"message": "Sensor DI5 actualizado correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al actualizar sensor DI5: {str(e)}"}, 500
-
-    # Eliminar un registro específico de Sensor_DI5 por ID
-    @login_required
-    def delete(self, sensor_id):
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            cur.execute("DELETE FROM Sensor_DI5 WHERE id = %s", (sensor_id,))
-            con.commit()
-            con.close()
-            return {"message": "Sensor DI5 eliminado correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al eliminar sensor DI5: {str(e)}"}, 500
-
 class SensorDI1Resource(Resource):
     @login_required
     def get(self):
@@ -443,7 +271,6 @@ class SensorDI1Resource(Resource):
         sensores = cur.fetchall()
         con.close()
         
-        # Convertimos los tiempos de la base de datos a string antes de devolverlos
         for sensor in sensores:
             for key in ['tiempo_deteccion_grande1', 'tiempo_deteccion_grande2', 'tiempo_deteccion_grande3']:
                 if sensor[key]:
@@ -451,35 +278,24 @@ class SensorDI1Resource(Resource):
         
         return jsonify(sensores)
 
-    # @login_required
     def post(self):
         data = request.get_json()
 
-        # Comprobamos que los campos requeridos estén presentes
         required_fields = ['tiempo_deteccion_grande1', 'tiempo_deteccion_grande2', 'tiempo_deteccion_grande3', 'usuario_id']
         if not all(field in data for field in required_fields):
             return {"message": "Faltan campos requeridos."}, 400
 
-        # Extraemos los datos
         usuario_id = data['usuario_id']
-        tiempo_deteccion_grande1 = str(data['tiempo_deteccion_grande1'])
-        tiempo_deteccion_grande2 = str(data['tiempo_deteccion_grande2'])
-        tiempo_deteccion_grande3 = str(data['tiempo_deteccion_grande3'])
+        sensor_id = uuid.uuid4().hex
 
-        # Generación de un ID único para el sensor
-        sensor_id = get_next_id()
-
-        # Conectar a la base de datos
         con = get_db_connection()
         cur = con.cursor()
 
         try:
-            # Inserción de datos en la tabla Sensor_DI1
             cur.execute("""
                 INSERT INTO Sensor_DI1 (id, usuario_id, tiempo_deteccion_grande1, tiempo_deteccion_grande2, tiempo_deteccion_grande3)
                 VALUES (%s, %s, %s, %s, %s)
-            """, (sensor_id, usuario_id, tiempo_deteccion_grande1, tiempo_deteccion_grande2, tiempo_deteccion_grande3))
-
+            """, (sensor_id, usuario_id, str(data['tiempo_deteccion_grande1']), str(data['tiempo_deteccion_grande2']), str(data['tiempo_deteccion_grande3'])))
             con.commit()
             con.close()
 
@@ -488,68 +304,6 @@ class SensorDI1Resource(Resource):
         except Exception as e:
             con.close()
             return {"message": f"Error al crear sensor DI1: {str(e)}"}, 500
-
-
-
-    @login_required
-    def get_sensor(self, sensor_id):
-        con = get_db_connection()
-        cur = con.cursor(dictionary=True)
-        cur.execute("SELECT * FROM Sensor_DI1 WHERE id = %s", (sensor_id,))
-        sensor = cur.fetchone()
-        con.close()
-        
-        if sensor:
-            # Convertimos los tiempos a string antes de devolverlos
-            for key in ['tiempo_deteccion_grande1', 'tiempo_deteccion_grande2', 'tiempo_deteccion_grande3']:
-                if sensor[key]:
-                    sensor[key] = str(sensor[key])
-            return jsonify(sensor)
-        else:
-            return {"message": "Sensor DI1 no encontrado."}, 404
-
-    @login_required
-    def put(self, sensor_id):
-        data = request.get_json()
-
-        required_fields = ['tiempo_deteccion_grande1', 'tiempo_deteccion_grande2', 'tiempo_deteccion_grande3']
-        
-        if not all(field in data for field in required_fields):
-            return {"message": "Faltan campos requeridos."}, 400
-        
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            # Convertimos los tiempos a string antes de actualizarlos
-            cur.execute("""
-                UPDATE Sensor_DI1
-                SET tiempo_deteccion_grande1 = %s, tiempo_deteccion_grande2 = %s, tiempo_deteccion_grande3 = %s
-                WHERE id = %s
-            """, (str(data['tiempo_deteccion_grande1']), 
-                  str(data['tiempo_deteccion_grande2']), 
-                  str(data['tiempo_deteccion_grande3']), 
-                  sensor_id))
-            con.commit()
-            con.close()
-            return {"message": "Sensor DI1 actualizado correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al actualizar sensor DI1: {str(e)}"}, 500
-
-    @login_required
-    def delete(self, sensor_id):
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            cur.execute("DELETE FROM Sensor_DI1 WHERE id = %s", (sensor_id,))
-            con.commit()
-            con.close()
-            return {"message": "Sensor DI1 eliminado correctamente."}, 200
-        except Exception as e:
-            con.close()
-            return {"message": f"Error al eliminar sensor DI1: {str(e)}"}, 500
 
 class RobotResource(Resource):
     @login_required
@@ -578,13 +332,8 @@ class RobotResource(Resource):
             
             return jsonify(robots)
 
-    # @login_required
     def post(self):
-        # Obtener datos de la solicitud
         data = request.get_json()
-
-        # Verificar que el usuario_id esté presente en los datos
-        print(f"Datos recibidos: {data}")
 
         usuario_id = data['usuario_id']
         tiempo_inicio = data['tiempo_inicio']
@@ -597,15 +346,12 @@ class RobotResource(Resource):
         tiempo_peque = data.get('tiempo_peque', 0)
         tiempo_grande = data.get('tiempo_grande', 0)
         
-        # Generación de un ID único para el robot
-        robot_id = get_next_id()
+        robot_id = uuid.uuid4().hex
 
-        # Conectar a la base de datos
         con = get_db_connection()
         cur = con.cursor()
 
         try:
-            # Inserción en la tabla Robot, asegurándose de incluir el usuario_id
             cur.execute("""
                 INSERT INTO Robot (id, usuario_id, tiempo_inicio, tiempo_final, paro_manual, min_total, seg_total, piezas_peque, piezas_grandes, tiempo_peque, tiempo_grande)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
@@ -614,50 +360,6 @@ class RobotResource(Resource):
             con.close()
 
             return {'message': 'Robot creado', 'id': robot_id}, 201
-        except Exception as e:
-            con.close()
-            return {'message': str(e)}, 400
-
-    @login_required
-    def put(self, robot_id):
-        data = request.get_json()
-
-        tiempo_inicio = data['tiempo_inicio']
-        tiempo_final = data['tiempo_final']
-        paro_manual = data['paro_manual']
-        min_total = data['min_total']
-        seg_total = data['seg_total']
-        piezas_peque = data.get('piezas_peque', 0)
-        piezas_grandes = data.get('piezas_grandes', 0)
-        tiempo_peque = data.get('tiempo_peque', 0)
-        tiempo_grande = data.get('tiempo_grande', 0)
-        
-        con = get_db_connection()
-        cur = con.cursor()
-        
-        try:
-            cur.execute("""
-                UPDATE Robot
-                SET tiempo_inicio = %s, tiempo_final = %s, paro_manual = %s, min_total = %s, seg_total = %s, piezas_peque = %s, piezas_grandes = %s, tiempo_peque = %s, tiempo_grande = %s
-                WHERE id = %s
-            """, (tiempo_inicio, tiempo_final, paro_manual, min_total, seg_total, piezas_peque, piezas_grandes, tiempo_peque, tiempo_grande, robot_id))
-            con.commit()
-            con.close()
-            return {'message': 'Robot actualizado'}, 200
-        except Exception as e:
-            con.close()
-            return {'message': str(e)}, 400
-
-    @login_required
-    def delete(self, robot_id):
-        con = get_db_connection()
-        cur = con.cursor()
-
-        try:
-            cur.execute("DELETE FROM Robot WHERE id = %s", (robot_id,))
-            con.commit()
-            con.close()
-            return {'message': 'Robot eliminado'}, 200
         except Exception as e:
             con.close()
             return {'message': str(e)}, 400
@@ -696,7 +398,6 @@ def run_cinta():
     direccion = data.get('direccion')  # 'forward' o 'backward'
     velocidad = data.get('velocidad')  # valor numérico (0-100)
 
-    # Ensure the robot is initialized
     if robot is None:
         init()
 
@@ -747,7 +448,6 @@ def controlar_robot():
         "yaw": yaw
     }), 200
 
-# Ruta para controlar pausa ("p") o marcha ("m")
 @app.route('/marchaparo', methods=['POST'])
 def marcha_paro():
     data = request.get_json()
@@ -755,20 +455,16 @@ def marcha_paro():
     controlar_pausa(accion)
     return jsonify({"accion": accion}), 200
 
-# Ruta principal para modo automático
 @app.route('/auto', methods=['POST'])
 def auto():
     data = request.get_json()
     user_id = data.get('usuario_id')
 
-    # Ejecutar modo automático (en segundo plano) y obtener resultados
     ventosa, sensordi1, sensordi5, robot = automatico()
 
-    # Añadir usuario_id a cada diccionario
     for dic in [ventosa, sensordi1, sensordi5, robot]:
         dic['usuario_id'] = user_id
 
-    # Enviar POST a cada una de las rutas
     try:
         responses = {
             "ventosa": requests.post('http://localhost:5000/ventosa', json=ventosa).json(),

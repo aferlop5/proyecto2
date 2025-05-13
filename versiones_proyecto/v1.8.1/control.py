@@ -11,12 +11,16 @@ conveyor_id = None
 def init():
     print("Hola desde init()")
     global robot, sensorDI5, sensorDI1, conveyor_id
-    robot = NiryoRobot("localhost")
-    robot.calibrate_auto()
-    robot.update_tool()
-    sensorDI5 = PinID.DI5
-    sensorDI1 = PinID.DI1
-    conveyor_id = robot.set_conveyor()
+    try:
+        robot = NiryoRobot("localhost")
+        robot.calibrate_auto()
+        robot.update_tool()
+        sensorDI5 = PinID.DI5
+        sensorDI1 = PinID.DI1
+        conveyor_id = robot.set_conveyor()
+    except Exception as e:
+        print(f"Simulación: No se pudo conectar al robot. Error: {e}")
+        robot = None  # Simula que no hay robot conectado
     
 
 def exitNiryo():
