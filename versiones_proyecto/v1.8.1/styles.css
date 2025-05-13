@@ -1,24 +1,43 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    background: linear-gradient(135deg, #5d87e2, #431bbc);
     margin: 0;
     padding: 0;
     color: #333;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 95vw;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 30px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 h1, h2 {
     text-align: center;
     color: #444;
+    font-family: 'tuffy', cursive;
 }
+h3 {
+  text-align: center;
+  color: #444;
+  font-family: 'Tuffy', cursive;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 
 button {
     display: inline-block;
@@ -85,13 +104,13 @@ form input {
 }
 
 #logoutButton {
-    float: right;
-    margin: 10px;
+    align-self: flex-end;
+    margin-bottom: 10px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    background: #6c757d;
-    color: #fff;
+    background: #b70b0b;
+    color: #d88383;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -101,4 +120,92 @@ form input {
 #logoutButton:hover {
     background: #5a6268;
     transform: scale(1.05);
+}
+
+/* Contenedor principal para las secciones */
+.main-sections {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Estilo para las secciones individuales */
+.main-sections > section {
+    flex: 1;
+    min-width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 900px) {
+    .main-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-sections > section {
+        max-width: 100%;
+    }
+
+    body {
+        overflow: auto;
+    }
+}
+
+.robot-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.robot-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.robot-controls {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.robot-controls button {
+  width: fit-content;
+  padding: 10px 20px;
+}
+
+.robot-controls h3 {
+  margin-bottom: 5px;
+}
+
+/* Responsive: apilar columnas en pantallas pequeñas */
+@media (max-width: 900px) {
+  .robot-layout {
+    flex-direction: column;
+  }
+
+  .robot-controls {
+    align-items: flex-start;
+  }
+}
+.robot-controls h3 {
+  margin: 20px 0 10px;
+}
+
+.control-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.control-group button {
+  flex: 1 1 auto;
+  min-width: 180px;
 }
