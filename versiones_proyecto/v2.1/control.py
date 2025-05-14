@@ -7,10 +7,13 @@ robot = None
 sensorDI5 = None
 sensorDI1 = None
 conveyor_id = None
+is_initialized = False
 
 def init():
     print("Hola desde init()")
-    global robot, sensorDI5, sensorDI1, conveyor_id
+    global robot, sensorDI5, sensorDI1, conveyor_id, is_initialized
+    if is_initialized:
+        return True
     try:
         robot = NiryoRobot("10.0.0.101")
         robot.calibrate_auto()
@@ -18,19 +21,21 @@ def init():
         sensorDI5 = PinID.DI5
         sensorDI1 = PinID.DI1
         conveyor_id = robot.set_conveyor()
+        is_initialized = True
+        return True
     except Exception as e:
         print(f"Simulación: No se pudo conectar al robot. Error: {e}")
         robot = None  # Simula que no hay robot conectado
-    
+        is_initialized = False
+        return False
 
 def exitNiryo():
     print("Adiós desde exit()")
-    
-    global robot, conveyor_id
+    global robot, conveyor_id, is_initialized
     if robot is not None:
         robot.unset_conveyor(conveyor_id)
         robot.close_connection()
-    
+    is_initialized = False
 
 def controlSensorDI1():
     # Genera aleatoriamente "HIGH" o "LOW"
@@ -56,9 +61,9 @@ def controlSensorDI5():
 
 def mover_cinta(velocidad, direccion):
     global robot, conveyor_id
-    if robot is None or conveyor_id is None:
-        print("Error: Robot o cinta no inicializados.")
-        return
+    if robot is None:
+        print("Error: Robot no inicializado.")
+        return False
 
     try:
         if direccion == 'forward':
@@ -69,8 +74,10 @@ def mover_cinta(velocidad, direccion):
             print(f"Cinta moviéndose hacia atrás a velocidad {velocidad}.")
         else:
             print("Error: Dirección inválida. Use 'forward' o 'backward'.")
+        return True
     except Exception as e:
         print(f"Error al mover la cinta: {e}")
+        return False
 
 def parar_cinta():
     global robot, conveyor_id
@@ -87,18 +94,32 @@ def parar_cinta():
 
 def control_herramienta(accion):
     print(f"{accion} herramienta")
+    if robot is None:
+        print("Error: Robot no inicializado.")
+        return False
     
-    if (accion == 'activar'):
-        robot.activate_tool()
-    else:
-        robot.deactivate_tool()
-    
+    try:
+        if (accion == 'activar'):
+            robot.activate_tool()
+        else:
+            robot.deactivate_tool()
+        return True
+    except Exception as e:
+        print(f"Error controlando herramienta: {e}")
+        return False
 
 def mover_robot(x, y, z, roll, pitch, yaw):
     print(f"Moviendo robot a: {x}, {y}, {z}, {roll}, {pitch}, {yaw}")
+    if robot is None:
+        print("Error: Robot no inicializado.")
+        return False
     
-    robot.move_joints(x, y, z, roll, pitch, yaw)
-    
+    try:
+        robot.move_joints(x, y, z, roll, pitch, yaw)
+        return True
+    except Exception as e:
+        print(f"Error moviendo robot: {e}")
+        return False
 
 # ESTA PARTE ES EXCLUSIVA DEL MODO AUTOMÁTICO
 import threading

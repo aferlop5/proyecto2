@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Control del Robot</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
 <body>
   <div class="container">
@@ -13,41 +12,6 @@
 
     <!-- Botón de Cerrar Sesión -->
     <button id="logoutButton" class="btn-secondary hidden">Cerrar Sesión</button>
-
-    <!-- Panel de Estado y Resultados -->
-    <div class="status-and-results">
-      <!-- Panel de Estado -->
-      <section id="statusPanel" class="hidden">
-        <h3>Estado del Sistema</h3>
-        <div class="status-grid">
-          <div class="status-item">
-            <h4>Sensor DI1</h4>
-            <p id="sensorDI1Status">Estado: --</p>
-          </div>
-          <div class="status-item">
-            <h4>Sensor DI5</h4>
-            <p id="sensorDI5Status">Estado: --</p>
-          </div>
-          <div class="status-item">
-            <h4>Posición del Robot</h4>
-            <p id="robotPosition">Posición: --</p>
-          </div>
-          <div class="status-item">
-            <h4>Estado de la Ventosa</h4>
-            <p id="ventosaStatus">Estado: --</p>
-          </div>
-          <div class="status-item">
-            <h4>Estado de la Cinta</h4>
-            <p id="cintaStatus">Estado: --</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Resultados del Modo Automático -->
-      <div id="autoModeResults" class="hidden">
-        <!-- Los resultados se insertarán aquí dinámicamente -->
-      </div>
-    </div>
 
     <!-- Contenedor principal para las secciones -->
     <div class="main-sections">
@@ -101,7 +65,7 @@
               <button id="desactivarVentosa" class="btn-danger">Desactivar Ventosa</button>
             </div>
 
-            <h3><strong>Modo Automático</strong></h3>
+            <h3>Modo Automático</h3>
             <div class="control-group">
               <button id="startAuto" class="btn-primary">Iniciar Modo Automático</button>
             </div>
@@ -110,18 +74,7 @@
       </section>
     </div>
 
-    <!-- Historial de Comandos -->
-    <section id="commandHistory" class="command-history hidden">
-      <h3>Historial de Comandos</h3>
-      <div class="history-container">
-        <ul id="historyList">
-          <!-- Los comandos se insertarán aquí dinámicamente -->
-        </ul>
-      </div>
-      <button id="clearHistory" class="btn-secondary">Limpiar Historial</button>
-    </section>
+    <script src="app.js"></script>
   </div>
-
-  <script src="app.js"></script>
 </body>
 </html>

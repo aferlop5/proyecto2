@@ -2,6 +2,7 @@ from control import get_sensor_states
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
+from flask_socketio import SocketIO, emit
 from functools import wraps
 from control import (
     controlSensorDI1, controlSensorDI5, mover_cinta, parar_cinta,
@@ -11,10 +12,49 @@ from control import (
 import mysql.connector
 import uuid
 import requests
+import logging
+import time
+from threading import Thread
+import os
+from werkzeug.serving import run_simple
+
+# Configuración de logging
+logging.basicConfig(
+    filename='robot_app.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+# Cache para almacenar estados temporales
+cache = {
+    'sensor_di1': None,
+    'sensor_di5': None,
+    'robot_position': None,
+    'ventosa_state': None
+}
+
+def update_sensor_states():
+    """Thread para actualizar estados de sensores en tiempo real"""
+    while True:
+        try:
+            states = get_sensor_states()
+            if states != cache['sensor_di1'] or states != cache['sensor_di5']:
+                cache.update(states)
+                socketio.emit('sensor_update', states)
+            time.sleep(0.1)  # Actualizar cada 100ms
+        except Exception as e:
+            logger.error(f"Error actualizando estados de sensores: {e}")
+
+# Iniciar thread de monitoreo
+sensor_thread = Thread(target=update_sensor_states)
+sensor_thread.daemon = True
+sensor_thread.start()
 
 def get_db_connection():
     return mysql.connector.connect(
@@ -306,7 +346,19 @@ class SensorDI1Resource(Resource):
             con.close()
             return {"message": f"Error al crear sensor DI1: {str(e)}"}, 500
 
+# Modificar la función init() para manejar mejor el modo simulación
+def init_robot():
+    try:
+        init()
+        return True
+    except Exception as e:
+        logger.warning(f"Ejecutando en modo simulación. Error de conexión: {e}")
+        return False
+
 class RobotResource(Resource):
+    def __init__(self):
+        self.simulation_mode = not init_robot()
+
     @login_required
     def get(self, robot_id=None):
         con = get_db_connection()
@@ -396,19 +448,29 @@ def controlar_sensor_DI5():
 @app.route('/cinta/run', methods=['POST'])
 def run_cinta():
     data = request.get_json()
-    direccion = data.get('direccion')  # 'forward' o 'backward'
-    velocidad = data.get('velocidad')  # valor numérico (0-100)
+    direccion = data.get('direccion')
+    velocidad = data.get('velocidad')
 
-    if robot is None:
-        init()
-
-    mover_cinta(velocidad, direccion)
-
-    return jsonify({
-        "estado": "RUN",
-        "direccion": direccion,
-        "velocidad": velocidad
-    }), 200
+    try:
+        logger.info(f"Iniciando cinta: dirección={direccion}, velocidad={velocidad}")
+        resultado = mover_cinta(velocidad, direccion)
+        if resultado:
+            socketio.emit('cinta_update', {'estado': 'running', 'direccion': direccion, 'velocidad': velocidad})
+            return jsonify({
+                "status": "success",
+                "estado": "RUN",
+                "direccion": direccion,
+                "velocidad": velocidad
+            }), 200
+        else:
+            error_msg = "Error: Robot o cinta no inicializados."
+            socketio.emit('error_state', {'component': 'cinta', 'error': error_msg})
+            return jsonify({"error": error_msg}), 500
+    except Exception as e:
+        error_msg = f"Error iniciando cinta: {str(e)}"
+        logger.error(error_msg)
+        socketio.emit('error_state', {'component': 'cinta', 'error': error_msg})
+        return jsonify({"error": error_msg}), 500
 
 @app.route('/cinta/stop', methods=['POST'])
 def stop_cinta():
@@ -420,13 +482,27 @@ def stop_cinta():
 @app.route('/control_ventosa', methods=['POST'])
 def controlar_herramienta():
     data = request.get_json()
-    accion = data.get('accion')  
+    accion = data.get('accion')
 
-    control_herramienta(accion)
-
-    return jsonify({
-        "accion": accion,
-    }), 200
+    try:
+        logger.info(f"Controlando ventosa: {accion}")
+        resultado = control_herramienta(accion)
+        if resultado:
+            cache['ventosa_state'] = accion
+            socketio.emit('ventosa_update', {'estado': accion})
+            return jsonify({
+                "status": "success",
+                "accion": accion,
+            }), 200
+        else:
+            error_msg = "Error: Robot o ventosa no inicializados."
+            socketio.emit('error_state', {'component': 'ventosa', 'error': error_msg})
+            return jsonify({"error": error_msg}), 500
+    except Exception as e:
+        error_msg = f"Error controlando ventosa: {str(e)}"
+        logger.error(error_msg)
+        socketio.emit('error_state', {'component': 'ventosa', 'error': error_msg})
+        return jsonify({"error": error_msg}), 500
 
 @app.route('/control_robot', methods=['POST'])
 def controlar_robot():
@@ -438,16 +514,26 @@ def controlar_robot():
     pitch = data.get('pitch')
     yaw = data.get('yaw')
 
-    mover_robot(x, y, z, roll, pitch, yaw)
-
-    return jsonify({
-        "x": x,
-        "y": y,
-        "z": z,
-        "roll": roll,
-        "pitch": pitch,
-        "yaw": yaw
-    }), 200
+    try:
+        logger.info(f"Moviendo robot a posición: x={x}, y={y}, z={z}, roll={roll}, pitch={pitch}, yaw={yaw}")
+        resultado = mover_robot(x, y, z, roll, pitch, yaw)
+        if resultado:
+            cache['robot_position'] = {'x': x, 'y': y, 'z': z, 'roll': roll, 'pitch': pitch, 'yaw': yaw}
+            socketio.emit('robot_position_update', cache['robot_position'])
+            return jsonify({
+                "status": "success",
+                "message": "Robot movido correctamente",
+                "position": cache['robot_position']
+            }), 200
+        else:
+            error_msg = "Error: Robot no inicializado."
+            socketio.emit('error_state', {'component': 'robot', 'error': error_msg})
+            return jsonify({"error": error_msg}), 500
+    except Exception as e:
+        error_msg = f"Error moviendo robot: {str(e)}"
+        logger.error(error_msg)
+        socketio.emit('error_state', {'component': 'robot', 'error': error_msg})
+        return jsonify({"error": error_msg}), 500
 
 @app.route('/marchaparo', methods=['POST'])
 def marcha_paro():
@@ -461,25 +547,27 @@ def auto():
     data = request.get_json()
     user_id = data.get('usuario_id')
 
-    ventosa, sensordi1, sensordi5, robot = automatico()
-
-    for dic in [ventosa, sensordi1, sensordi5, robot]:
-        dic['usuario_id'] = user_id
-
     try:
+        logger.info(f"Iniciando modo automático para usuario: {user_id}")
+        ventosa, sensordi1, sensordi5, robot_data = automatico()
+
+        for dic in [ventosa, sensordi1, sensordi5, robot_data]:
+            dic['usuario_id'] = user_id
+
         responses = {
             "ventosa": requests.post('http://localhost:5000/ventosa', json=ventosa).json(),
             "sensor_di1": requests.post('http://localhost:5000/sensor_di1', json=sensordi1).json(),
             "sensor_di5": requests.post('http://localhost:5000/sensor_di5', json=sensordi5).json(),
-            "robot": requests.post('http://localhost:5000/robot', json=robot).json(),
+            "robot": requests.post('http://localhost:5000/robot', json=robot_data).json(),
         }
 
-        print("Datos registrados:", responses)
-        return jsonify({'message': 'Datos registrados correctamente'}), 200
+        logger.info(f"Modo automático completado: {responses}")
+        socketio.emit('auto_complete', responses)
+        return jsonify({'message': 'Datos registrados correctamente', 'data': responses}), 200
 
-    except requests.exceptions.RequestException as e:
-        print('Error al registrar los datos:', e)
-        return jsonify({'message': 'Error al registrar los datos'}), 500
+    except Exception as e:
+        logger.error(f"Error en modo automático: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 class SensorStatus(Resource):
     def get(self):
@@ -493,5 +581,15 @@ api.add_resource(SensorDI1Resource, '/sensor_di1', '/sensor_di1/<string:sensor_i
 api.add_resource(RobotResource, '/robot', '/robot/<string:robot_id>')
 api.add_resource(SensorStatus, "/sensores/estado")
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    # Intentar inicializar el robot al inicio del servidor
+    try:
+        logger.info("Iniciando conexión con el robot...")
+        if init():
+            logger.info("Conexión con el robot establecida correctamente")
+        else:
+            logger.warning("No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.")
+    except Exception as e:
+        logger.error(f"Error al inicializar el robot: {e}")
+        
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)

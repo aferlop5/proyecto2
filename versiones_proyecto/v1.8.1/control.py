@@ -12,7 +12,7 @@ def init():
     print("Hola desde init()")
     global robot, sensorDI5, sensorDI1, conveyor_id
     try:
-        robot = NiryoRobot("localhost")
+        robot = NiryoRobot("10.0.0.101")
         robot.calibrate_auto()
         robot.update_tool()
         sensorDI5 = PinID.DI5
