@@ -1,0 +1,35 @@
+class UsuarioResource(Resource):
+    def get(self):
+        nick = request.headers.get('nick')
+        password = request.headers.get('password')
+
+        # Verifica si el usuario existe en la base de datos
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM Usuario WHERE nick = %s AND password = %s", (nick, password))
+        user = cursor.fetchone()
+        conn.close()
+
+        if user:
+            return {"message": "Usuario autenticado"}, 200
+        else:
+            return {"message": "Credenciales incorrectas"}, 401
+
+    def post(self):
+        data = request.get_json()
+        nick = data.get('nick')
+        password = data.get('password')
+
+        # Inserta el nuevo usuario en la base de datos
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute("INSERT INTO Usuario (id, nick, password) VALUES (UUID(), %s, %s)", (nick, password))
+            conn.commit()
+            return {"message": "Usuario registrado exitosamente"}, 201
+        except Exception as e:
+            return {"message": f"Error al registrar usuario: {str(e)}"}, 400
+        finally:
+            conn.close()
+
+api.add_resource(UsuarioResource, '/usuario')
