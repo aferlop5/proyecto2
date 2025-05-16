@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control del Robot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Control del Robot</h1>
+
+    <!-- Botón de Cerrar Sesión -->
+    <button id="logoutButton" class="btn-secondary hidden">Cerrar Sesión</button>
+
+    <!-- Panel de Estado y Resultados -->
+    <div class="status-and-results">
+      <!-- Panel de Estado -->
+      <section id="statusPanel" class="hidden">
+        <h3>Estado del Sistema</h3>
+        <div class="status-grid">
+          <div class="status-item">
+            <h4>Sensor DI1</h4>
+            <p id="sensorDI1Status">Estado: --</p>
+          </div>
+          <div class="status-item">
+            <h4>Sensor DI5</h4>
+            <p id="sensorDI5Status">Estado: --</p>
+          </div>
+          <div class="status-item">
+            <h4>Posición del Robot</h4>
+            <p id="robotPosition">Posición: --</p>
+          </div>
+          <div class="status-item">
+            <h4>Estado de la Ventosa</h4>
+            <p id="ventosaStatus">Estado: --</p>
+          </div>
+          <div class="status-item">
+            <h4>Estado de la Cinta</h4>
+            <p id="cintaStatus">Estado: --</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resultados del Modo Automático -->
+      <div id="autoModeResults" class="hidden">
+        <!-- Los resultados se insertarán aquí dinámicamente -->
+      </div>
+    </div>
+
+    <!-- Contenedor principal para las secciones -->
+    <div class="main-sections">
+      <!-- Manejo de Usuarios -->
+      <section id="userSection">
+        <h2>Gestión de Usuarios</h2>
+        <form id="loginForm">
+          <label for="nick">Nick:</label>
+          <input type="text" id="nick" name="nick" placeholder="Introduce tu nick" required />
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required />
+          <button type="submit" class="btn-primary">Iniciar Sesión</button>
+        </form>
+        <button id="registerButton" class="btn-secondary">Registrarse</button>
+      </section>
+
+      <!-- Control del Robot -->
+      <section id="robotSection" class="hidden">
+        <div class="robot-layout">
+          <!-- Columna izquierda: formulario -->
+          <div class="robot-form">
+            <form id="robotForm">
+              <label for="x">X:</label>
+              <input type="number" id="x" name="x" placeholder="Coordenada X" required />
+              <label for="y">Y:</label>
+              <input type="number" id="y" name="y" placeholder="Coordenada Y" required />
+              <label for="z">Z:</label>
+              <input type="number" id="z" name="z" placeholder="Coordenada Z" required />
+              <label for="roll">Roll:</label>
+              <input type="number" id="roll" name="roll" placeholder="Ángulo Roll" required />
+              <label for="pitch">Pitch:</label>
+              <input type="number" id="pitch" name="pitch" placeholder="Ángulo Pitch" required />
+              <label for="yaw">Yaw:</label>
+              <input type="number" id="yaw" name="yaw" placeholder="Ángulo Yaw" required />
+              <button type="submit" class="btn-primary">Mover Robot</button>
+            </form>
+          </div>
+
+          <!-- Columna derecha: controles -->
+          <div class="robot-controls">
+            <h3>Control de la Cinta</h3>
+            <div class="control-group">
+              <button id="startCintaForward" class="btn-primary">Iniciar Cinta (Forward)</button>
+              <button id="startCintaBackward" class="btn-primary">Iniciar Cinta (Backward)</button>
+              <button id="stopCinta" class="btn-danger">Detener Cinta</button>
+            </div>
+
+            <h3>Control de la Ventosa</h3>
+            <div class="control-group">
+              <button id="activarVentosa" class="btn-primary">Activar Ventosa</button>
+              <button id="desactivarVentosa" class="btn-danger">Desactivar Ventosa</button>
+            </div>
+
+            <h3><strong>Modo Automático</strong></h3>
+            <div class="control-group">
+              <button id="startAuto" class="btn-primary">Iniciar Modo Automático</button>
+            </div>
+
+            <!-- Timer Display -->
+            <div id="timerDisplay" class="timer-display">
+              <h4>Tiempo Transcurrido:</h4>
+              <p id="elapsedTime">0 segundos</p>
+            </div>
+
+            <div class="control-buttons">
+              <button id="startButton" class="btn-primary">Start</button>
+              <button id="stopButton" class="btn-danger">Stop</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Historial de Comandos -->
+    <section id="commandHistory" class="command-history hidden">
+      <h3>Historial de Comandos</h3>
+      <div class="history-container">
+        <ul id="historyList">
+          <!-- Los comandos se insertarán aquí dinámicamente -->
+        </ul>
+      </div>
+      <button id="clearHistory" class="btn-secondary">Limpiar Historial</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

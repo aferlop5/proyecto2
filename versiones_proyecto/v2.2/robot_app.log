@@ -2988,3 +2988,117 @@
 2025-05-15 13:13:12,607 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:13:12] "GET /socket.io/?EIO=4&transport=polling&t=PRJfVa1&sid=WQJNc5D2I8oszZBdAAAA HTTP/1.1" 200 -
 2025-05-15 13:13:12,898 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:13:12] "GET /socket.io/?EIO=4&transport=polling&t=PRJfVez&sid=WQJNc5D2I8oszZBdAAAA HTTP/1.1" 200 -
 2025-05-15 13:13:31,013 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:13:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-15 13:14:31,948 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:14:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-15 13:15:29,588 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:15:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-15 13:16:30,659 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:16:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-15 13:17:31,218 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:17:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:33:56,686 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-16 17:34:06,694 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-16 17:34:06,702 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-16 17:34:06,702 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-16 17:34:06,702 - werkzeug - INFO -  * Restarting with stat
+2025-05-16 17:34:06,899 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-16 17:34:16,909 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-16 17:34:16,913 - werkzeug - WARNING -  * Debugger is active!
+2025-05-16 17:34:16,945 - werkzeug - INFO -  * Debugger PIN: 540-696-312
+2025-05-16 17:34:16,947 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:16,949 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:16] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-16 17:34:16,951 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:16] "GET /socket.io/?EIO=4&transport=polling&t=PRPkp7V HTTP/1.1" 200 -
+2025-05-16 17:34:17,237 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:17,238 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "POST /socket.io/?EIO=4&transport=polling&t=PRPkrPE&sid=D_vVztcoK00YAZIfAAAA HTTP/1.1" 200 -
+2025-05-16 17:34:17,243 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /socket.io/?EIO=4&transport=polling&t=PRPkrPF&sid=D_vVztcoK00YAZIfAAAA HTTP/1.1" 200 -
+2025-05-16 17:34:17,263 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /usuario HTTP/1.1" 200 -
+2025-05-16 17:34:17,523 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:17,527 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /socket.io/?EIO=4&transport=polling&t=PRPkrUD&sid=D_vVztcoK00YAZIfAAAA HTTP/1.1" 200 -
+2025-05-16 17:34:17,808 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:18,088 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:18,332 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:18,369 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:22,289 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:22,325 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:22,573 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:22,609 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:23,085 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:24,294 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:24,920 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:26,112 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:26,752 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:27,960 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:28,585 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:29,777 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:30,684 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:31,608 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:32,252 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:33,448 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:34,092 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:35,369 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:36,070 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:37,364 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:38,066 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:39,376 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:40,065 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:41,367 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:42,067 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:43,378 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:44,067 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:45,375 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:46,031 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:47,235 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:47,870 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:49,070 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:49,701 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:50,899 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:51,534 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:52,733 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:53,365 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:56,471 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:57,111 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:58,304 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:34:58,937 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:34:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:00,136 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:00,764 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:01,967 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:01] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:02,607 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:03,794 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:04,193 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:04] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-16 17:35:04,481 - __main__ - INFO - Iniciando cinta: dirección=backward, velocidad=100
+2025-05-16 17:35:04,481 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:04] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-16 17:35:04,716 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:05,347 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:06,552 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:07,188 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:08,382 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:08,613 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:08] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-16 17:35:08,704 - __main__ - INFO - Controlando ventosa: activar
+2025-05-16 17:35:08,704 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:08] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-16 17:35:09,017 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:10,222 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:10,850 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:12,052 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:12,691 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:13,886 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:14,519 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:15,727 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:16,345 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:17,553 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:18,185 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:19,389 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:20,021 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:21,215 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:21,860 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:23,055 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:23,684 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:24,883 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:25,524 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:26,721 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:27,349 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:31,474 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:32,108 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:33,313 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:33,939 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:35,142 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:35,774 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-16 17:35:36,431 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:36] "GET /socket.io/?EIO=4&transport=websocket&sid=D_vVztcoK00YAZIfAAAA HTTP/1.1" 200 -
