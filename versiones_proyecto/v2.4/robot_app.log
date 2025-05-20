@@ -1,0 +1,1299 @@
+2025-05-20 18:49:45,714 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 18:49:55,719 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 18:49:55,722 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-20 18:49:55,722 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 18:49:55,722 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 18:49:55,926 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 18:50:05,931 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 18:50:05,933 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 18:50:05,933 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 18:50:05,936 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:05,938 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:05,938 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:05,939 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:05,939 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "GET /socket.io/?EIO=4&transport=polling&t=PRkcUBf HTTP/1.1" 200 -
+2025-05-20 18:50:05,940 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:05,941 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:05,997 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:05,998 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:05,999 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:05] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:15,296 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:15,297 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:15] "GET /socket.io/?EIO=4&transport=polling&t=PRkcYcG HTTP/1.1" 200 -
+2025-05-20 18:50:15,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:15] "POST /socket.io/?EIO=4&transport=polling&t=PRkcYhJ&sid=cNp9H8a6SQXzGBczAAAB HTTP/1.1" 200 -
+2025-05-20 18:50:15,579 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:15] "GET /socket.io/?EIO=4&transport=polling&t=PRkcYhK&sid=cNp9H8a6SQXzGBczAAAB HTTP/1.1" 200 -
+2025-05-20 18:50:15,583 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:15] "GET /socket.io/?EIO=4&transport=polling&t=PRkcYm8&sid=cNp9H8a6SQXzGBczAAAB HTTP/1.1" 200 -
+2025-05-20 18:50:16,208 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:16,208 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:16,208 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:16] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:16,848 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:17,128 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:17,128 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:17] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:18,047 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:18,048 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:18,048 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:18] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:18,558 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:18] "GET /socket.io/?EIO=4&transport=websocket&sid=cNp9H8a6SQXzGBczAAAB HTTP/1.1" 200 -
+2025-05-20 18:50:18,587 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:18,880 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:18] "GET /socket.io/?EIO=4&transport=polling&t=PRkcZZK HTTP/1.1" 200 -
+2025-05-20 18:50:19,176 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:19] "POST /socket.io/?EIO=4&transport=polling&t=PRkcZeO&sid=L_uUe6QQd3EIb-MBAAAD HTTP/1.1" 200 -
+2025-05-20 18:50:19,178 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:19] "GET /socket.io/?EIO=4&transport=polling&t=PRkcZeP&sid=L_uUe6QQd3EIb-MBAAAD HTTP/1.1" 200 -
+2025-05-20 18:50:19,507 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:19,798 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:19,799 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:19] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:20,713 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:20,714 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:20] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:20,716 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:21,343 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:21,630 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:21,630 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:21] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:22,547 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:22,548 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:22,549 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:22] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:22,844 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:22] "OPTIONS /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:23,231 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:23] "GET /usuario HTTP/1.1" 200 -
+2025-05-20 18:50:23,371 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:23,475 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:23,477 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:23] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:24,782 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:25,068 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:25,068 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:25] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:25,297 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:25,356 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:25,357 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:25] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:26,217 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:26,219 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:26,220 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:26] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:26,841 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:27,131 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:27,131 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:27] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:28,041 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:28,043 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:28,043 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:28] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:28,674 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:28,964 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:28,965 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:28] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:29,880 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:29,881 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:29,882 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:29] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:30,514 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:30,801 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:30,802 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:30] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:31,709 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:31,710 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:31] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:31,710 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:32,355 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:32,643 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:32,644 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:32] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:33,550 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:33,552 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:33,552 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:33] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:34,174 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:34,454 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:34,454 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:34] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:35,384 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:35,384 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:35,384 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:35] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:36,005 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:36,285 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:36,285 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:36] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:37,222 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:37,223 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:37,224 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:37] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:37,841 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:38,130 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:38,130 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:38] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:39,046 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:39,046 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:39,046 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:39] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:39,673 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:39,964 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:39,964 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:39] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:40,877 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:40,878 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:40,878 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:40] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:41,509 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:41,786 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:41,786 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:41] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:42,706 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:42,706 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:42,707 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:42] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:43,349 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:43,637 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:43,637 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:43] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:47,483 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:47,484 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:47,484 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:47] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:48,113 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:48,401 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:48,401 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:48] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:49,314 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:49,315 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:49,315 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:49] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:49,936 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:50,225 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:50,225 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:50] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:51,139 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:51,141 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:51,141 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:51] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:51,769 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:52,050 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:52,051 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:52] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:52,980 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:52,980 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:52,981 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:52] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:53,607 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:53,895 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:53,895 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:53] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:54,806 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:54,806 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:54] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:54,806 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:55,447 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:55,736 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:55,736 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:55] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:56,638 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:56,639 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:56,640 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:56] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:57,270 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:57,551 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:57,552 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:57] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:58,466 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:58,467 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:58,467 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:58] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:50:59,102 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:59] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:50:59,387 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:50:59,388 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:50:59] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:00,301 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:00,301 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:00,302 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:00] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:00,935 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:01,323 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:01,324 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:01] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:02,144 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:02,145 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:02,145 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:02] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:02,771 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:03,097 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:03,097 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:03] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:03,978 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:03,980 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:03,981 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:03] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:04,602 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:04,890 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:04,891 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:04] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:05,801 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:05,802 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:05] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:05,802 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:06,445 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:06,729 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:06,729 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:06] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:07,644 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:07,645 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:07,645 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:08,269 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:08,557 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:08,557 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:08] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:09,474 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:09,474 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:09,475 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:09] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:10,475 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:10,867 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:10,867 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:10] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:11,671 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:11] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:11,672 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:11,672 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:11] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:12,315 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:12,602 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:12,602 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:12] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:13,515 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:13,516 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:13,516 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:13] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:14,144 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:14,424 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:14,425 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:14] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:15,356 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:15,356 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:15,357 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:15] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:15,981 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:16,264 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:16,265 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:16] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:17,182 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:17,183 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:17,183 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:17] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:17,812 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:18,110 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:18,110 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:18] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:18,727 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:19,012 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:19,012 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:19] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:22,859 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:22,860 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:22,860 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:22] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:23,498 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:23,790 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:23,791 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:23] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:24,418 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:24,711 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:24,712 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:24] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:25,628 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:25,629 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:25] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:25,629 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:26,249 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:26,546 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:26,546 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:26] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:27,443 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:27,443 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:27,444 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:27] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:28,082 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:28,375 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:28,375 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:28] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:28,995 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:29,277 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:29,278 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:29] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:30,193 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:30,194 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:30,194 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:30] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:30,837 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:31,120 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:31,120 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:31] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:31,751 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:32,038 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:32,038 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:32] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:32,953 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:32,954 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:32,955 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:32] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:33,584 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:33,882 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:33,883 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:33] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:34,782 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:34,783 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:34,783 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:34] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:35,411 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:35,705 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:35,706 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:35] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:36,622 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:36,623 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:36,624 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:36] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:37,244 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:37,528 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:37,528 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:37] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:38,470 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:38,477 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:38,477 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:38] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:39,087 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:39,369 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:39,370 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:39] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:40,285 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:40,286 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:40,286 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:40] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:40,911 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:41,204 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:41,204 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:41] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:42,122 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:42,122 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:42] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:42,125 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:42,749 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:43,030 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:43,031 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:43] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:43,960 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:43,964 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:43,964 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:43] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:44,583 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:44,879 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:44,879 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:44] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:45,793 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:45,795 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:45,795 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:45] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:46,425 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:46,706 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:46,706 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:46] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:47,621 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:47,622 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:47,622 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:47] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:48,250 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:48,536 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:48,536 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:48] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:49,463 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:49,465 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:49,465 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:49] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:50,079 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:50,367 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:50,367 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:50] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:51,281 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:51,283 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:51,283 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:51] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:51,919 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:52,211 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:52,212 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:52] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:52,835 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:53,126 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:53,126 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:53] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:54,033 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:54,038 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:54,039 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:54] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:57,592 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:57,874 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:57,874 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:57] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:58,839 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:58,839 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:58] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:51:58,840 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:59,425 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:59] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:51:59,706 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:51:59,707 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:51:59] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:00,644 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:00,645 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:00] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:00,646 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:01,269 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:01] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:01,560 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:01,560 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:01] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:02,472 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:02,473 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:02,473 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:02] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:03,097 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:03,380 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:03,380 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:03] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:04,013 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:04,298 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:04,298 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:04] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:05,220 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:05,222 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:05,222 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:05] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:05,842 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:06,126 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:06,127 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:06] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:07,058 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:07,059 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:07,059 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:07,674 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:07,960 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:07,960 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:08,895 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:08,895 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:08,895 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:08] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:52:09,510 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:52:09,794 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:52:09,794 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:52:09] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:53:09,734 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:53:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:53:09,735 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:53:09,735 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:53:09] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:54:07,404 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:54:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:54:07,686 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:54:07,686 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:54:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:08,549 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:08,551 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:08,551 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:08] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:16,417 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:16,703 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:16,703 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:16] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:17,044 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:17,329 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:17,329 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:17] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:18,652 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:18,653 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:18,653 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:18] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:19,257 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:19,542 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:19,543 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:19] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:20,454 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:20,455 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:20,456 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:20] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:21,082 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:21,364 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:21,365 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:21] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:22,290 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:22,291 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:22,291 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:22] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:22,926 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:23,204 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:23,204 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:23] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:24,124 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:24,127 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:24,128 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:24] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:24,751 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:25,035 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:25,035 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:25] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:29,053 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:29,053 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:29,054 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:29] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:29,525 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:29,810 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:29,811 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:29] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:30,722 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:30,723 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:30,725 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:30] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:31,354 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:31,642 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:31,642 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:31] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:32,546 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:32,550 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:32,551 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:32] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:33,181 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:33,467 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:33,468 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:33] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:34,381 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:34,381 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:34] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:34,384 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:35,014 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:35,302 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:35,303 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:35] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:36,215 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:36,215 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:36,215 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:36] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:36,855 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:37,140 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:37,141 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:37] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:38,055 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:38,055 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:38] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:38,056 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:38,683 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:38,970 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:38,971 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:38] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:39,887 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:39,888 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:39,889 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:39] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:40,516 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:40,799 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:40,800 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:40] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:41,724 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:41,725 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:41,725 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:41] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:42,348 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:42,638 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:42,638 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:42] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:43,559 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:43,559 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:43,559 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:43] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:44,183 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:44,469 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:44,469 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:44] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:45,388 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:45,389 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:45,389 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:45] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:46,015 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:46,298 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:46,299 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:46] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:47,228 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:47,229 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:47,230 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:47] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:47,845 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:48,128 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:48,129 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:48] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:49,063 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:49,065 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:49,065 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:49] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:49,691 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:49,976 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:49,976 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:49] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:50,897 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:50,898 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:50,899 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:50] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:51,520 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:51,806 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:51,807 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:51] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:52,713 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:52,714 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:52,715 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:52] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:53,349 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:53,636 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:53,636 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:53] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:54,547 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:54,547 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:54] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:54,548 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:55,189 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:55,484 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:55,485 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:55] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:56,387 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:56,388 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:56,389 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:56] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:57,017 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:57,302 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:57,303 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:57] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:58,221 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:58,223 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:58,224 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:58] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:55:58,849 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:55:59,131 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:55:59,132 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:55:59] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:00,060 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:00,061 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:00] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:00,062 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:03,619 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:03,901 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:03,902 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:03] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:04,997 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:04,998 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:04,998 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:04] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:05,448 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:05,731 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:05,732 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:05] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:06,659 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:06,660 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:06,661 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:06] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:07,279 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:07,628 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:07,628 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:08,479 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:08,480 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:08,480 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:08] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:09,112 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:09,396 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:09,397 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:09] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:10,328 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:10,328 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:10,329 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:10] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:10,954 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:11,241 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:11,241 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:11] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:12,152 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:12,154 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:12,154 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:12] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:12,780 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:13,068 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:13,068 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:13] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:13,982 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:13,983 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:13,983 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:13] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:14,615 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:14,907 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:14,907 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:14] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:16,016 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:16,017 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:16,017 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:16] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:16,444 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:16,725 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:16,726 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:16] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:17,653 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:17,653 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:17,654 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:17] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:56:18,291 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:56:18,701 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:56:18,701 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:56:18] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:57:07,338 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:57:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:57:07,339 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:57:07,339 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:57:07] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:58:07,916 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:58:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:58:08,198 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:58:08,199 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:58:08] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:59:09,059 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:59:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 18:59:09,060 - __main__ - ERROR - Error retrieving timer: name 'start_time' is not defined
+2025-05-20 18:59:09,060 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 18:59:09] "[35m[1mGET /timer HTTP/1.1[0m" 500 -
+2025-05-20 18:59:26,926 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 18:59:26,980 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:29:16,340 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:29:29,281 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:29:29,288 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-20 19:29:29,288 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:29:29,289 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:29:29,498 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:29:39,507 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:29:39,509 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:29:39,509 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:29:39,747 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:39,748 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:40,401 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:40,690 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:45,898 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:45,899 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:45] "GET /socket.io/?EIO=4&transport=polling&t=PRklbic HTTP/1.1" 200 -
+2025-05-20 19:29:46,130 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:46] "POST /socket.io/?EIO=4&transport=polling&t=PRklbno&sid=ytTK6WfmED9FREKoAAAA HTTP/1.1" 200 -
+2025-05-20 19:29:46,187 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:46] "GET /socket.io/?EIO=4&transport=polling&t=PRklbnp&sid=ytTK6WfmED9FREKoAAAA HTTP/1.1" 200 -
+2025-05-20 19:29:46,517 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:46,806 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:46] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:47,726 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:47,726 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:48,354 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:48,640 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:49,423 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:49] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:29:49,554 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:49,556 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:49,651 - __main__ - INFO - Iniciando cinta: dirección=backward, velocidad=100
+2025-05-20 19:29:49,652 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:49] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:29:50,195 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:50,487 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:51,404 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:51,407 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:52,018 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:52,305 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:52] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:53,234 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:53,235 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:53,855 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:54,136 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:55,066 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:55,067 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:55,684 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:55,974 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:56,888 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:56,889 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:56] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:57,423 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:57] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-20 19:29:57,711 - __main__ - INFO - Controlando ventosa: activar
+2025-05-20 19:29:57,711 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:57] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-20 19:29:57,797 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:57,798 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:57] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:29:58,440 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:29:58,728 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:29:58] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:02,466 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:02] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:30:02,580 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:02] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:02,581 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:02,712 - __main__ - INFO - Iniciando cinta: dirección=forward, velocidad=100
+2025-05-20 19:30:02,713 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:02] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:30:03,212 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:03,504 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:03] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:04,405 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:04] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:04,406 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:04,694 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:04] "OPTIONS /auto HTTP/1.1" 200 -
+2025-05-20 19:30:04,975 - __main__ - INFO - Iniciando modo automático para usuario: agus
+2025-05-20 19:30:04,975 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:04] "[35m[1mPOST /auto HTTP/1.1[0m" 500 -
+2025-05-20 19:30:05,223 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:05,322 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:05,965 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:06,254 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:06] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:07,163 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:07,164 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:07] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:07,795 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:08,084 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:08] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:09,003 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:09,004 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:09] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:09,620 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:09,909 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:09] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:10,826 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:10,827 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:10] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:11,462 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:11] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:11,749 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:11] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:12,651 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:12] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:12,652 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:13,288 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:13,571 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:13] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:14,491 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:14,491 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:14] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:15,121 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:15,404 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:15] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:16,334 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:16,335 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:16,952 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:17,239 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:17] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:18,146 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:18,147 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:18] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:18,788 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:19,077 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:19,997 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:19,998 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:20,626 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:20,911 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:20] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:21,820 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:21,821 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:21] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:22,463 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:22,751 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:23,663 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:23,664 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:24,294 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:24,584 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:24] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:25,488 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:25,489 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:25] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:26,124 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:26,412 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:26] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:27,324 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:27,324 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:27] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:27,953 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:28,240 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:28] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:29,157 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:29] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:29,158 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:29,794 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:30,080 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:30,987 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:30,988 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:31,630 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:31,913 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:31] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:32,831 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:32,831 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:32] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:33,460 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:33,748 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:37,592 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:37,594 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:37] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:38,229 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:38,517 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:38] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:39,438 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:39,440 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:40,053 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:40,332 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:41,263 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:41,264 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:41,894 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:42,181 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:42] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:43,085 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:43,086 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:43] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:43,727 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:44,013 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:44,930 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:44,930 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:45,561 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:45,906 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:45] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:46,759 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:46] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:46,760 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:47,381 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:47,687 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:48,615 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:48,616 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:49,228 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:49,522 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:50,428 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:50,429 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:51,049 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:51,353 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:52,253 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:52] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:52,254 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:52,885 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:53,175 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:54,103 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:54,104 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:54,727 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:55,030 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:55,935 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:55,936 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:56,550 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:56,836 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:56] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:57,755 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:57,755 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:57] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:58,390 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:58,679 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:58] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:30:59,601 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:59] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:30:59,601 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:30:59] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:00,215 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:00,503 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:00] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:01,424 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:01] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:01,424 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:01] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:02,058 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:02,346 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:02] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:03,258 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:03,260 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:03] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:03,885 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:03] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:04,177 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:04] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:05,100 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:05,101 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:05,723 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:06,009 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:06] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:06,924 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:06,925 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:06] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:07,549 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:07,841 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:07] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:08,767 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:08,768 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:08] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:09,396 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:12,615 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:12] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:13,530 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:13,530 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:13] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:14,159 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:14,445 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:14] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:15,364 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:15,364 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:15] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:15,982 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:16,270 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:17,194 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:17,194 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:17] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:17,823 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:18,111 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:18] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:19,029 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:19,030 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:19,647 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:19,933 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:20,869 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:20,871 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:20] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:21,483 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:21,771 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:21] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:22,697 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:22,698 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:23,327 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:23,614 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:24,532 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:24,532 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:24] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:25,149 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:25,430 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:25] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:26,366 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:26,366 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:26] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:26,983 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:27,272 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:27] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:28,192 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:28,193 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:28] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:28,825 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:29,113 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:29] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:30,028 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:30,029 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:30,647 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:30,936 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:31,861 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:31,862 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:31] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:32,494 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:32,787 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:32] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:33,689 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:33,689 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:34,324 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:34,612 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:35,530 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:35,530 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:36,147 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:36,435 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:37,355 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:37,356 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:37] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:37,986 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:38,276 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:38] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:39,191 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:39,193 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:39,817 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:40,105 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:41,025 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:41,026 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:41,657 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:41,946 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:42,862 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:42,863 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:42] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:43,494 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:43,782 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:43] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:44,689 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:44,691 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:48,256 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:48,543 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:49,454 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:49,455 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:50,088 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:50,373 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:51,295 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:51,296 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:51,915 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:52,195 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:52] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:53,127 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:53,128 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:53,756 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:54,047 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:54,950 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:54,950 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:55,579 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:55,868 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:56,792 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:56] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:56,793 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:56] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:57,425 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:57] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:57,716 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:57] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:58,627 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:58] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:31:58,628 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:59,252 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:59] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:31:59,539 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:31:59] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:00,455 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:00] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:00,459 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:00] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:01,087 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:01] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:01,375 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:01] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:02,293 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:02,293 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:02] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:02,919 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:02] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:03,209 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:03] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:04,137 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:04,139 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:04] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:04,759 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:05,051 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:05,959 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:05,960 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:06,582 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:06,882 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:06] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:07,784 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:07,784 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:07] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:08,413 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:08] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:08,703 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:08] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:09,626 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:09] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:09,627 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:09] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:10,256 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:10] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:10,545 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:10] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:11,450 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:11] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:11,451 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:11] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:12,083 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:12,373 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:12] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:13,290 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:13,291 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:13] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:13,919 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:14,209 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:14] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:15,128 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:15,129 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:15] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:15,757 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:15] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:16,050 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:16,952 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:16,953 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:17,587 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:17,873 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:17] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:18,794 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:18,796 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:18] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:19,424 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:19,712 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:23,562 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:23,563 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:24,184 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:24,475 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:24] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:25,389 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:25] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:25,390 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:26,023 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:26,310 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:26] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:27,217 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:27,217 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:27] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:27,848 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:28,137 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:28] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:29,062 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:29] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:29,062 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:29,689 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:29,974 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:29] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:30,897 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:30,899 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:31,525 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:31,808 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:31] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:32,714 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:32,714 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:32] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:33,347 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:33,639 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:34,557 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:34,558 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:35,189 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:35,481 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:36,394 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:36,396 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:37,023 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:37,313 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:37] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:38,220 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:38,221 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:38] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:38,855 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:39,142 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:40,061 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:40,062 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:40,679 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:40,963 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:41,886 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:41,887 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:42,520 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:42,808 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:42] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:43,722 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:43,724 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:43] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:44,357 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:44,646 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:45,557 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:45] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:45,558 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:46,184 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:46,475 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:46] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:47,391 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:47,392 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:48,024 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:48,314 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:49,211 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:49,212 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:49,858 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:50,144 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:51,048 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:51,049 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:51,689 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:51,976 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:52,898 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:52,898 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:52] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:53,522 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:53,811 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:54,719 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:54,720 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:32:58,278 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:32:58] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:32:58,511 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 19:32:58,549 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:32:58,752 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:33:09,856 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:33:19,863 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:33:19,866 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-20 19:33:19,867 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:33:19,867 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:33:20,080 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:33:30,090 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:33:30,099 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:33:30,100 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:33:30,106 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:30,111 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:30,112 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:30,113 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:30,116 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /socket.io/?EIO=4&transport=polling&t=PRkmQGi HTTP/1.1" 200 -
+2025-05-20 19:33:30,118 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /socket.io/?EIO=4&transport=polling&t=PRkmQUD HTTP/1.1" 200 -
+2025-05-20 19:33:30,118 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:33,335 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:33,336 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:33,338 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "POST /socket.io/?EIO=4&transport=polling&t=PRkmSpt&sid=DkpFz2CT_0XAkt7FAAAB HTTP/1.1" 200 -
+2025-05-20 19:33:33,342 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /socket.io/?EIO=4&transport=polling&t=PRkmSpt.0&sid=DkpFz2CT_0XAkt7FAAAB HTTP/1.1" 200 -
+2025-05-20 19:33:33,622 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:33,623 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:33,919 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:33,920 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:34,214 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:34,218 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:34,508 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:34,511 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:34,805 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:34,806 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:35,095 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:35,095 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:35,385 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:35,386 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:35,671 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:35,672 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:35,956 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:35,957 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:36,250 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:36,252 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:36,546 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:36,548 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:36,837 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:37,109 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:37,390 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:37] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:37,606 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:37] "OPTIONS /auto HTTP/1.1" 200 -
+2025-05-20 19:33:37,889 - __main__ - INFO - Iniciando modo automático para usuario: agus
+2025-05-20 19:33:37,889 - __main__ - ERROR - Error en modo automático: cannot unpack non-iterable bool object
+2025-05-20 19:33:37,890 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:37] "[35m[1mPOST /auto HTTP/1.1[0m" 500 -
+2025-05-20 19:33:38,136 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:38,324 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:38] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:38,944 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:39,241 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:40,154 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:40,155 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:40,786 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:41,074 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:41,981 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:41,982 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:42,611 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:42,901 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:42] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:43,836 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:43,839 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:43] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:44,443 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:44,721 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:45,643 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:45] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:45,643 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:45] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:46,276 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:46,578 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:46] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:46,663 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:46] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:33:46,951 - __main__ - INFO - Iniciando cinta: dirección=backward, velocidad=100
+2025-05-20 19:33:46,951 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:46] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:33:47,199 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:47,482 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:48,391 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:48,392 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:49,029 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:49,306 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:49,367 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:49] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-20 19:33:49,652 - __main__ - INFO - Controlando ventosa: activar
+2025-05-20 19:33:49,652 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:49] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-20 19:33:49,951 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:50,261 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:51,161 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:51,161 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:51,779 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:52,067 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:52] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:53,081 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:53,082 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:53,616 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:53] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:53,902 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:53] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:54,820 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:54] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:33:54,820 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:54] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:55,452 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:55] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:33:55,824 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:33:55] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:40:44,602 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:40:54,605 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:40:54,608 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-20 19:40:54,608 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:40:54,608 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:40:54,831 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:41:04,838 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:41:04,841 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:41:04,841 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:41:04,846 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:04] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:04,847 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:04,850 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:04] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:04,854 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:04] "GET /socket.io/?EIO=4&transport=polling&t=PRkoAzd HTTP/1.1" 200 -
+2025-05-20 19:41:04,856 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:04] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:05,143 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:05,145 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "POST /socket.io/?EIO=4&transport=polling&t=PRkoBnR&sid=znf6tpkI84vCAMI5AAAA HTTP/1.1" 200 -
+2025-05-20 19:41:05,146 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:05,147 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /socket.io/?EIO=4&transport=polling&t=PRkoBnS&sid=znf6tpkI84vCAMI5AAAA HTTP/1.1" 200 -
+2025-05-20 19:41:05,432 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:05,433 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:05,716 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:05,790 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:05,959 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:05] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:06,415 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:06] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:06,706 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:06] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:07,614 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:07] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:07,617 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:07] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:11,184 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:11] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:11,463 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:11] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:12,378 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:12] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:12,379 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:12] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:13,005 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:13] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:13,286 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:13] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:14,200 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:14] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:14,201 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:14,842 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:14] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:15,129 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:15] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:16,051 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:16,052 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:16,673 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:16] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:16,956 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:16] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:17,443 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:17] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:41:17,792 - __main__ - INFO - Iniciando cinta: dirección=backward, velocidad=100
+2025-05-20 19:41:17,792 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:17] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:41:17,793 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:17] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:17,872 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:17] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:18,509 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:18] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:18,793 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:18] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:19,702 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:19] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:19,703 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:19] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:19,944 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:19] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-20 19:41:19,946 - __main__ - INFO - Controlando ventosa: activar
+2025-05-20 19:41:19,946 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:19] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-20 19:41:20,630 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:20] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:20,630 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:20] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:21,256 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:21] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:21,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:21] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:22,464 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:22,465 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:23,088 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:41:23,378 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:41:23,677 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:41:23] "GET /socket.io/?EIO=4&transport=websocket&sid=znf6tpkI84vCAMI5AAAA HTTP/1.1" 200 -
+2025-05-20 19:45:44,195 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 19:45:44,232 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:45:44,440 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:45:54,449 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:45:54,450 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:45:54,451 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:46:00,461 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 19:46:00,500 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:46:00,700 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:46:13,641 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:46:13,643 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:46:13,643 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:46:23,661 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 19:46:23,707 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:46:23,911 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:46:33,922 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:46:33,924 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:46:33,924 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:49:12,857 - werkzeug - INFO -  * Detected change in '/home/Agusti/segundo/proyecto2/versiones_proyecto/v2.4/control.py', reloading
+2025-05-20 19:49:12,899 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:49:13,123 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:49:23,132 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:49:23,134 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:49:23,134 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:49:58,952 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:50:08,958 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:50:08,961 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.239.185:5000
+2025-05-20 19:50:08,961 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:50:08,961 - werkzeug - INFO -  * Restarting with stat
+2025-05-20 19:50:09,204 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 19:50:22,143 - __main__ - WARNING - No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.
+2025-05-20 19:50:22,144 - werkzeug - WARNING -  * Debugger is active!
+2025-05-20 19:50:22,145 - werkzeug - INFO -  * Debugger PIN: 262-670-912
+2025-05-20 19:50:22,147 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:22,148 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:22,150 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /socket.io/?EIO=4&transport=polling&t=PRkqI5J HTTP/1.1" 200 -
+2025-05-20 19:50:22,431 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:22,431 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:22,433 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "POST /socket.io/?EIO=4&transport=polling&t=PRkqJLZ&sid=LdgHZe55eOdO6Zx2AAAA HTTP/1.1" 200 -
+2025-05-20 19:50:22,435 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /socket.io/?EIO=4&transport=polling&t=PRkqJLa&sid=LdgHZe55eOdO6Zx2AAAA HTTP/1.1" 200 -
+2025-05-20 19:50:22,715 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:22,715 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /socket.io/?EIO=4&transport=polling&t=PRkqJQO&sid=LdgHZe55eOdO6Zx2AAAA HTTP/1.1" 200 -
+2025-05-20 19:50:22,716 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:22] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:23,002 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:23,002 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:23,289 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:23,290 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:23,577 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:23,578 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:23,863 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:23] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:24,107 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:24] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:24,151 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:24] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:24,705 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:24] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:50:24,994 - __main__ - INFO - Iniciando cinta: dirección=backward, velocidad=100
+2025-05-20 19:50:24,994 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:24] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:50:25,080 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:25] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:25,081 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:25,698 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:25] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:25,980 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:25] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:26,584 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:26] "OPTIONS /cinta/run HTTP/1.1" 200 -
+2025-05-20 19:50:26,828 - __main__ - INFO - Iniciando cinta: dirección=forward, velocidad=100
+2025-05-20 19:50:26,828 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:26] "[35m[1mPOST /cinta/run HTTP/1.1[0m" 500 -
+2025-05-20 19:50:26,994 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:26] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:26,995 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:26] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:27,531 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:27] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:27,865 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:27] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:28,639 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:28] "OPTIONS /cinta/stop HTTP/1.1" 200 -
+2025-05-20 19:50:28,847 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:28] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:28,847 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:28] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:28,867 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:28] "POST /cinta/stop HTTP/1.1" 200 -
+2025-05-20 19:50:29,369 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:29] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:29,682 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:29] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:30,570 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:30] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:30,571 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:30] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:31,198 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:31] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:31,486 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:31] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:32,404 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:32] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:32,405 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:32] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:33,035 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:33,323 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:33] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:33,423 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:33] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-20 19:50:33,715 - __main__ - INFO - Controlando ventosa: activar
+2025-05-20 19:50:33,716 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:33] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-20 19:50:33,953 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:33] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:34,229 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:34] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:34,861 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:34] "OPTIONS /control_ventosa HTTP/1.1" 200 -
+2025-05-20 19:50:35,104 - __main__ - INFO - Controlando ventosa: desactivar
+2025-05-20 19:50:35,104 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:35] "[35m[1mPOST /control_ventosa HTTP/1.1[0m" 500 -
+2025-05-20 19:50:35,293 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:35,294 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:35] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:35,781 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:35] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:36,069 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:36,688 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:36] "OPTIONS /auto HTTP/1.1" 200 -
+2025-05-20 19:50:36,932 - __main__ - INFO - Iniciando modo automático para usuario: agus
+2025-05-20 19:50:36,932 - __main__ - ERROR - Error en modo automático: cannot unpack non-iterable bool object
+2025-05-20 19:50:36,932 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:36] "[35m[1mPOST /auto HTTP/1.1[0m" 500 -
+2025-05-20 19:50:36,975 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:36] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:36,978 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:36] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:37,627 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:37] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:37,913 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:37] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:38,823 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:38] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:38,824 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:38] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:39,456 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:39] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:39,745 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:39] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:40,644 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:40] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:40,645 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:40] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:41,283 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:41] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:41,560 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:41] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:42,485 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:42] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:42,486 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:42] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:43,122 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:43] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:43,408 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:43] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:44,318 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:44,319 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:44] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:44,948 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:44] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:45,231 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:45] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:46,151 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:46,152 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:46] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:46,781 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:46] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:47,073 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:47,806 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:47] "OPTIONS /control_robot HTTP/1.1" 200 -
+2025-05-20 19:50:47,996 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:47] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:47,998 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:47] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:48,048 - __main__ - INFO - Moviendo robot a posición: x=2, y=2, z=2, roll=2, pitch=2, yaw=2
+2025-05-20 19:50:48,048 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:48] "[35m[1mPOST /control_robot HTTP/1.1[0m" 500 -
+2025-05-20 19:50:48,616 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:48] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:48,903 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:48] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:49,817 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:49] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:49,819 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:49] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:50,453 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:50] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:50,737 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:50] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:51,656 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:51] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:51,657 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:51] "GET /timer HTTP/1.1" 200 -
+2025-05-20 19:50:52,295 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:52] "GET /sensores/estado HTTP/1.1" 200 -
+2025-05-20 19:50:52,351 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:50:52] "GET /socket.io/?EIO=4&transport=websocket&sid=LdgHZe55eOdO6Zx2AAAA HTTP/1.1" 200 -

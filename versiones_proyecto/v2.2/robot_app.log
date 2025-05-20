@@ -3102,3 +3102,6 @@
 2025-05-16 17:35:35,142 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:35] "GET /sensores/estado HTTP/1.1" 200 -
 2025-05-16 17:35:35,774 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:35] "GET /sensores/estado HTTP/1.1" 200 -
 2025-05-16 17:35:36,431 - werkzeug - INFO - 127.0.0.1 - - [16/May/2025 17:35:36] "GET /socket.io/?EIO=4&transport=websocket&sid=D_vVztcoK00YAZIfAAAA HTTP/1.1" 200 -
+2025-05-20 12:54:11,892 - __main__ - INFO - Iniciando conexión con el robot...
+2025-05-20 12:54:11,893 - pyniryo.NiryoRobot - INFO - Connected to server (10.0.0.101) on port 40001
+2025-05-20 12:54:11,902 - pyniryo.NiryoRobot - INFO - This PyNiryo version is meant to be used on a more recent version of the Robot's system. To fully benefit from the server features it's advised to upgrade your Robot System.

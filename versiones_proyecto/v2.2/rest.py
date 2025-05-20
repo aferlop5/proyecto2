@@ -272,7 +272,8 @@ class SensorDI5Resource(Resource):
     def post(self):
         data = request.get_json()
 
-        required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3', 'usuario_id']
+        required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3', 'usuario_id'
+        ]
         if not all(field in data for field in required_fields):
             return {"message": "Faltan campos requeridos."}, 400
 
@@ -596,15 +597,5 @@ api.add_resource(SensorDI1Resource, '/sensor_di1', '/sensor_di1/<string:sensor_i
 api.add_resource(RobotResource, '/robot', '/robot/<string:robot_id>')
 api.add_resource(SensorStatus, "/sensores/estado")
 
-if __name__ == '__main__':
-    # Intentar inicializar el robot al inicio del servidor
-    try:
-        logger.info("Iniciando conexión con el robot...")
-        if init():
-            logger.info("Conexión con el robot establecida correctamente")
-        else:
-            logger.warning("No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.")
-    except Exception as e:
-        logger.error(f"Error al inicializar el robot: {e}")
-        
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)  # Cambiar a puerto 5000

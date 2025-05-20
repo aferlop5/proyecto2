@@ -1,16 +1,20 @@
-from pyniryo import * 
-import random #borrar 
-from datetime import time
+from pyniryo import NiryoRobot, PinID, PinState, ConveyorDirection, PoseObject
 import time
+import threading
+import random  # Asegúrate de importar random si no está ya importado
 
+# Variables globales
 robot = None
 sensorDI5 = None
 sensorDI1 = None
 conveyor_id = None
 is_initialized = False
+start_time = None  # Para calcular el tiempo transcurrido en modo automático
+pausa_event = threading.Event()
+pausa_event.set()
 
 def init():
-    print("Intentando conectar con el robot...")
+    """Inicializa la conexión con el robot."""
     global robot, sensorDI5, sensorDI1, conveyor_id, is_initialized
     if is_initialized:
         print("El robot ya está conectado.")
@@ -40,36 +44,34 @@ def init():
     return False
 
 def exitNiryo():
-    print("Adiós desde exit()")
+    """Cierra la conexión con el robot."""
     global robot, conveyor_id, is_initialized
     if robot is not None:
         robot.unset_conveyor(conveyor_id)
         robot.close_connection()
     is_initialized = False
 
-def controlSensorDI1():
-    # Genera aleatoriamente "HIGH" o "LOW"
-    estado = random.choice(["HIGH", "LOW"])
-    return estado
+def _pin_to_str(state):
+    """Convierte el estado de un pin a una cadena legible."""
+    if isinstance(state, PinState):
+        return "HIGH" if state == PinState.HIGH else "LOW"
+    return "HIGH" if state else "LOW"
 
-    if robot.digital_read(sensorDI1) == PinState.HIGH:
-        return "HIGH"
-    else:
-        return "LOW"
-    
-
-def controlSensorDI5():
-    # Genera aleatoriamente "HIGH" o "LOW"
-    estado = random.choice(["HIGH", "LOW"])
-    return estado
-    
-    if robot.digital_read(sensorDI5) == PinState.HIGH:
-        return "HIGH"
-    else:
-        return "LOW"
-    
+def get_sensor_states():
+    """Obtiene el estado de los sensores DI1 y DI5."""
+    global robot, sensorDI1, sensorDI5
+    try:
+        if robot is None:
+            return {"sensor_di1": "OFFLINE", "sensor_di5": "OFFLINE"}
+        di1 = _pin_to_str(robot.digital_read(sensorDI1))
+        di5 = _pin_to_str(robot.digital_read(sensorDI5))
+        return {"sensor_di1": di1, "sensor_di5": di5}
+    except Exception as e:
+        print(f"Error leyendo sensores: {e}")
+        return {"sensor_di1": "ERROR", "sensor_di5": "ERROR"}
 
 def mover_cinta(velocidad, direccion):
+    """Mueve la cinta transportadora en la dirección y velocidad especificadas."""
     global robot, conveyor_id
     if robot is None:
         print("Error: Robot no inicializado.")
@@ -78,10 +80,8 @@ def mover_cinta(velocidad, direccion):
     try:
         if direccion == 'forward':
             robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.FORWARD)
-            print(f"Cinta moviéndose hacia adelante a velocidad {velocidad}.")
         elif direccion == 'backward':
             robot.run_conveyor(conveyor_id, speed=velocidad, direction=ConveyorDirection.BACKWARD)
-            print(f"Cinta moviéndose hacia atrás a velocidad {velocidad}.")
         else:
             print("Error: Dirección inválida. Use 'forward' o 'backward'.")
         return True
@@ -90,6 +90,7 @@ def mover_cinta(velocidad, direccion):
         return False
 
 def parar_cinta():
+    """Detiene la cinta transportadora."""
     global robot, conveyor_id
     if robot is None or conveyor_id is None:
         print("Error: Robot o cinta no inicializados.")
@@ -101,15 +102,14 @@ def parar_cinta():
     except Exception as e:
         print(f"Error al detener la cinta: {e}")
 
-
 def control_herramienta(accion):
-    print(f"{accion} herramienta")
+    """Activa o desactiva la herramienta del robot."""
     if robot is None:
         print("Error: Robot no inicializado.")
         return False
-    
+
     try:
-        if (accion == 'activar'):
+        if accion == 'activar':
             robot.activate_tool()
         else:
             robot.deactivate_tool()
@@ -118,73 +118,51 @@ def control_herramienta(accion):
         print(f"Error controlando herramienta: {e}")
         return False
 
-def mover_robot(x, y, z, roll, pitch, yaw):
-    print(f"Moviendo robot a: {x}, {y}, {z}, {roll}, {pitch}, {yaw}")
-    if robot is None:
-        print("Error: Robot no inicializado.")
-        return False
-    
-    try:
-        robot.move_joints(x, y, z, roll, pitch, yaw)
-        return True
-    except Exception as e:
-        print(f"Error moviendo robot: {e}")
-        return False
+def controlar_pausa(orden):
+    """Controla la pausa del modo automático."""
+    if orden == "p":
+        pausa_event.clear()
+        print("Pausado.")
+    elif orden == "m":
+        pausa_event.set()
+        print("Reanudado.")
 
-# ESTA PARTE ES EXCLUSIVA DEL MODO AUTOMÁTICO
-import threading
-pausa_event = threading.Event()
-pausa_event.set()
-
-# Función para simular el modo automático
 def modo_automatico():
-    print("Modo automático activado")
-    global robot, sensorDI5, sensorDI1, conveyor_id
+    """Ejecuta el modo automático."""
+    global robot, sensorDI5, sensorDI1, conveyor_id, start_time
+
+    # Verificar si el robot está inicializado
+    if robot is None:
+        print("Modo automático no puede iniciarse: Robot no inicializado.")
+        return False
 
     small_pieces = 0
     large_pieces = 0
-
-    # Posición central de la zona de paletizado
     central_pose = PoseObject(x=0.035, y=0.242, z=0.122, roll=-3.092, pitch=1.458, yaw=-1.413)
-
-    # Offsets(en metros)
-    offsets = [
-        (-0.075, -0.075),  # Círculo inferior izquierdo
-        (0.075, -0.075),   # Círculo inferior derecho
-        (-0.075, 0.075),   # Círculo superior izquierdo
-    ]
-
-    # Iniciar el cronómetro
-    start_time = time.time()
+    offsets = [(-0.075, -0.075), (0.075, -0.075), (-0.075, 0.075)]
+    start_time = time.time()  # Inicia el contador solo si el robot está conectado
 
     while small_pieces < 3 or large_pieces < 3:
-        # Esperar si está pausado
         while not pausa_event.is_set():
             time.sleep(0.1)
 
-        # Avanzar la cinta hasta detectar una pieza con DI5
         while robot.digital_read(sensorDI5) == PinState.HIGH:
             robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
         robot.stop_conveyor(conveyor_id)
 
-        # Analizar la pieza detectada con DI1
         if robot.digital_read(sensorDI1) == PinState.LOW:
-            # Retroceder la cinta durante 5 segundos para desechar la pieza grande
             start_time_piece = time.time()
             while time.time() - start_time_piece < 8:
                 robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
             robot.stop_conveyor(conveyor_id)
             large_pieces += 1
         else:
-            # Paletizar la pieza pequeña
             robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
             robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
             robot.grasp_with_tool()
             robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
 
-            # Paletizar la pieza pequeña en la zona de trabajo
-            current_offset = offsets[small_pieces]  # Seleccionar offset
-
+            current_offset = offsets[small_pieces]
             paletize_pose = PoseObject(
                 x=central_pose.x + current_offset[0],
                 y=central_pose.y + current_offset[1],
@@ -196,83 +174,95 @@ def modo_automatico():
             robot.move_pose(central_pose)
             robot.move_pose(paletize_pose)
             robot.release_with_tool()
-            robot.move_pose(central_pose)  # Volver a la posición central después de soltar
-
+            robot.move_pose(central_pose)
             robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
             small_pieces += 1
 
-    # Detener el cronómetro
     end_time = time.time()
     elapsed_time = end_time - start_time
-
-    # Desactivar la cinta transportadora
     robot.unset_conveyor(conveyor_id)
-
-    # Finalizar conexión con el robot
     robot.close_connection()
-
     print(f"Proceso completado: 3 piezas pequeñas colocadas y 3 piezas grandes desechadas.")
     print(f"Tiempo total transcurrido: {elapsed_time:.2f} segundos.")
 
-    # Write to database
-    connection = get_db_connection()
-    cursor = connection.cursor()
-    try:
-        cursor.execute("""
-            INSERT INTO Robot (tiempo_inicio, tiempo_final, piezas_peque, piezas_grandes)
-            VALUES (%s, %s, %s, %s)
-        """, (start_time, end_time, small_pieces, large_pieces))
-        connection.commit()
-    except Exception as e:
-        print(f"Error al escribir en la base de datos: {e}")
-    finally:
-        cursor.close()
-        connection.close()
+    # Crear los diccionarios para devolver
+    ventosa_dict = {
+        "tiempo_agarre1": "valor1",
+        "tiempo_agarre2": "valor2",
+        "tiempo_agarre3": "valor3",
+        "tiempo_dejada1": "valor4",
+        "tiempo_dejada2": "valor5",
+        "tiempo_dejada3": "valor6",
+    }
 
-# Función para el control
-def controlar_pausa(orden):
-    if orden == "p":
-        pausa_event.clear()
-        print("Pausado.")
-    elif orden == "m":
-        pausa_event.set()
-        print("Reanudado.")
+    di1_dict = {
+        "tiempo_deteccion_grande1": "valor1",
+        "tiempo_deteccion_grande2": "valor2",
+        "tiempo_deteccion_grande3": "valor3",
+    }
 
-# Función que ejecuta el modo automático y el control de pausa
-def automatico():
-    if not init():
-        print("Modo automático no puede iniciarse sin conexión al robot.")
-        return None  # Indicate failure to start
+    di5_dict = {
+        "tiempo_deteccion_peque1": "valor1",
+        "tiempo_deteccion_peque2": "valor2",
+        "tiempo_deteccion_peque3": "valor3",
+    }
 
-    resultados = []
+    robot_dict = {
+        "tiempo_inicio": start_time,
+        "tiempo_final": end_time,
+        "paro_manual": False,
+        "min_total": int(elapsed_time // 60),
+        "seg_total": int(elapsed_time % 60),
+        "piezas_peque": small_pieces,
+        "piezas_grandes": large_pieces,
+        "tiempo_peque": "valor_peque",
+        "tiempo_grande": "valor_grande",
+    }
 
-    def wrapper():
-        resultados.extend(modo_automatico())
+    return ventosa_dict, di1_dict, di5_dict, robot_dict
 
-    hilo_robot = threading.Thread(target=wrapper)
-    hilo_robot.start()
-    hilo_robot.join()
-
-    print("Proceso finalizado.")
-    return resultados[0], resultados[1], resultados[2], resultados[3]
-
-def get_sensor_states():
-    global sensorDI1, sensorDI5
-    try:
-        return {
-            "DI1": robot.digital_read(sensorDI1),
-            "DI5": robot.digital_read(sensorDI5)
-        }
-    except Exception as e:
-        return {
-            "DI1": False,
-            "DI5": False
-        }
-
-# Function to get the elapsed time since automatic mode started
-elapsed_time = 0
 def get_elapsed_time():
-    global elapsed_time
+    """Devuelve el tiempo transcurrido desde el inicio del modo automático."""
+    global start_time
     if start_time:
-        elapsed_time = time.time() - start_time
-    return elapsed_time
+        return time.time() - start_time
+    return 0
+
+def controlSensorDI1():
+    """Controla el estado del sensor DI1."""
+    global robot, sensorDI1
+    if robot is None:
+        # Simulación: retorna un valor aleatorio
+        return "HIGH" if random.choice([True, False]) else "LOW"
+    return _pin_to_str(robot.digital_read(sensorDI1))
+
+def controlSensorDI5():
+    """Controla el estado del sensor DI5."""
+    global robot, sensorDI5
+    if robot is None:
+        # Simulación: retorna un valor aleatorio
+        return "HIGH" if random.choice([True, False]) else "LOW"
+    return _pin_to_str(robot.digital_read(sensorDI5))
+
+def mover_robot(x, y, z, roll, pitch, yaw):
+    """Mueve el robot a la posición especificada usando juntas."""
+    global robot
+    if robot is None:
+        print("Error: Robot no inicializado.")
+        return False
+
+    try:
+        # Cambiar a move_joints para trabajar con juntas
+        robot.move_joints(x, y, z, roll, pitch, yaw)
+        return True
+    except Exception as e:
+        print(f"Error al mover el robot: {e}")
+        return False
+
+def automatico():
+    """Ejecuta el modo automático."""
+    try:
+        return modo_automatico()  # Llama a la función existente `modo_automatico`
+    except Exception as e:
+        print(f"Error en modo automático: {e}")
+        return False

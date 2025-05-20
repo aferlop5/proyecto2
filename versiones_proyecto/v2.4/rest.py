@@ -34,20 +34,21 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Cache para almacenar estados temporales
 cache = {
-    'sensor_di1': None,
-    'sensor_di5': None,
-    'robot_position': None,
-    'ventosa_state': None
+    "sensor_di1": None,
+    "sensor_di5": None,
+    "robot_position": None,
+    "ventosa_state": None
 }
 
 def update_sensor_states():
     """Thread para actualizar estados de sensores en tiempo real"""
     while True:
         try:
-            states = get_sensor_states()
-            if states != cache['sensor_di1'] or states != cache['sensor_di5']:
-                cache.update(states)
-                socketio.emit('sensor_update', states)
+            states = get_sensor_states()  # devuelve {'sensor_di1': valor1, 'sensor_di5': valor2}
+            if (states["sensor_di1"] != cache.get("sensor_di1") or 
+                states["sensor_di5"] != cache.get("sensor_di5")):
+                cache.update(states)  # Actualiza el cache con los nuevos estados
+                socketio.emit("sensor_update", states)  # Emite los nuevos estados al frontend
             time.sleep(0.1)  # Actualizar cada 100ms
         except Exception as e:
             logger.error(f"Error actualizando estados de sensores: {e}")
@@ -273,7 +274,8 @@ class SensorDI5Resource(Resource):
     def post(self):
         data = request.get_json()
 
-        required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3', 'usuario_id']
+        required_fields = ['tiempo_deteccion_peque1', 'tiempo_deteccion_peque2', 'tiempo_deteccion_peque3', 'usuario_id'
+        ]
         if not all(field in data for field in required_fields):
             return {"message": "Faltan campos requeridos."}, 400
 
@@ -577,7 +579,7 @@ def auto():
 
 class SensorStatus(Resource):
     def get(self):
-        return get_sensor_states()
+        return jsonify(get_sensor_states())
 
 @app.route('/start_automatic_mode', methods=['POST'])
 def start_automatic_mode():
@@ -624,13 +626,15 @@ api.add_resource(SensorStatus, "/sensores/estado")
 # Function to read and save robot position
 
 def read_and_save_robot_position():
+    last_log_time = 0  # Timestamp of the last logged error
     while True:
         try:
-            if robot and robot.is_connected():  # Check connection
-                position = robot.get_joints()  # Get robot's joint positions
+            # Verifica si el robot está conectado de forma segura
+            if robot and getattr(robot, 'is_connected', lambda: False)():
+                position = robot.get_joints()  # Obtiene las posiciones de las articulaciones del robot
                 connected = True
 
-                # Save position to the database
+                # Guarda la posición en la base de datos
                 timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
                 connection = get_db_connection()
                 cursor = connection.cursor()
@@ -642,7 +646,7 @@ def read_and_save_robot_position():
                 cursor.close()
                 connection.close()
 
-                # Emit position to the web
+                # Emite la posición al frontend
                 socketio.emit('robot_position_update', {
                     'x': position[0],
                     'y': position[1],
@@ -653,15 +657,18 @@ def read_and_save_robot_position():
                     'connected': connected
                 })
             else:
-                # Emit error message to the web
+                # Emite un mensaje de error al frontend
                 socketio.emit('robot_position_update', {
                     'error': 'Error: No se pudo conectar al robot.'
                 })
 
-            time.sleep(0.5)  # Update interval to half a second
+            time.sleep(0.5)  # Intervalo de actualización de medio segundo
 
         except Exception as e:
-            logger.error(f"Error reading and saving robot position: {e}")
+            current_time = time.time()
+            if current_time - last_log_time >= 5:  # Registra el error solo una vez cada 5 segundos
+                logger.error(f"Error leyendo y guardando la posición del robot: {e}")
+                last_log_time = current_time
             time.sleep(0.5)
 
 # Start the thread for reading and saving robot positions
