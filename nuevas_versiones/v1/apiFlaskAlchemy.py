@@ -7,11 +7,10 @@ from resourceFlaskAlchemy import robots
 from flask_cors import CORS
 
 db_user = 'root'
-# Sin contraseña
 db_password = ''
 
-# Conexión usando el nombre del contenedor "mysql_robot"
-MYSQL_URI = f"mysql+pymysql://{db_user}:{db_password}@mysql_robot:3306/niryodb"
+# Usa "127.0.0.1" para conectarte al puerto mapeado por Docker.
+MYSQL_URI = f"mysql+pymysql://{db_user}:{db_password}@127.0.0.1:3306/niryodb"
 # We link the database
 
 def create_api():
