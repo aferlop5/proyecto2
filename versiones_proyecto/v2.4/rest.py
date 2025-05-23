@@ -53,11 +53,6 @@ def update_sensor_states():
         except Exception as e:
             logger.error(f"Error actualizando estados de sensores: {e}")
 
-# Iniciar thread de monitoreo
-sensor_thread = Thread(target=update_sensor_states)
-sensor_thread.daemon = True
-sensor_thread.start()
-
 def get_db_connection():
     return mysql.connector.connect(
         user="root",
@@ -457,7 +452,11 @@ def run_cinta():
     try:
         logger.info(f"Iniciando cinta: dirección={direccion}, velocidad={velocidad}")
         resultado = mover_cinta(velocidad, direccion)
-        if resultado:
+        if resultado == "NO_CONVEYOR":
+            error_msg = "Error: Conveyor no disponible."
+            socketio.emit('error_state', {'component': 'cinta', 'error': error_msg})
+            return jsonify({"error": error_msg}), 500
+        elif resultado is True:
             socketio.emit('cinta_update', {'estado': 'running', 'direccion': direccion, 'velocidad': velocidad})
             return jsonify({
                 "status": "success",
@@ -466,7 +465,7 @@ def run_cinta():
                 "velocidad": velocidad
             }), 200
         else:
-            error_msg = "Error: Robot o cinta no inicializados."
+            error_msg = "Error al mover la cinta."
             socketio.emit('error_state', {'component': 'cinta', 'error': error_msg})
             return jsonify({"error": error_msg}), 500
     except Exception as e:
@@ -676,15 +675,34 @@ position_thread = threading.Thread(target=read_and_save_robot_position)
 position_thread.daemon = True
 position_thread.start()
 
+def lazy_robot_start():
+    """
+    Intenta conectar con el robot una vez que el servidor ya está
+    escuchando. Corre en un hilo aparte para no bloquear Flask.
+    La calibración se ejecuta en segundo plano; cuando termine,
+    se lanza el hilo de sensores.
+    """
+    import threading
+    def _worker():
+        from control import init
+        if init():
+            print("[Robot] Conectado y calibrado")
+        else:
+            print("[Robot] Modo simulación")
+        # Ahora sí: hilo de sensores
+        from threading import Thread
+        sensor_thread = Thread(target=update_sensor_states, daemon=True)
+        sensor_thread.start()
+
+    threading.Thread(target=_worker, daemon=True).start()
+
 if __name__ == '__main__':
-    # Intentar inicializar el robot al inicio del servidor
     try:
         logger.info("Iniciando conexión con el robot...")
-        if init():
-            logger.info("Conexión con el robot establecida correctamente")
-        else:
-            logger.warning("No se pudo establecer conexión con el robot. El servidor funcionará en modo simulación.")
+        logger.info("El servidor está listo para funcionar.")
     except Exception as e:
         logger.error(f"Error al inicializar el robot: {e}")
-        
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    
+    # Lanzamos la calibración (y posteriormente la lectura de sensores)
+    lazy_robot_start()  
+    socketio.run(app, host='0.0.0.0', port=5000, debug=False, use_reloader=False)

@@ -1,7 +1,9 @@
-from pyniryo import NiryoRobot, PinID, PinState, ConveyorDirection, PoseObject
+from pyniryo import NiryoRobot, NiryoRobotException, PinID, PinState, ConveyorDirection, PoseObject, ToolID
 import time
 import threading
 import random  # Asegúrate de importar random si no está ya importado
+import logging
+logger = logging.getLogger(__name__)
 
 # Variables globales
 robot = None
@@ -9,39 +11,61 @@ sensorDI5 = None
 sensorDI1 = None
 conveyor_id = None
 is_initialized = False
+has_conveyor = None  # Flag para cinta transportadora disponible
+has_tool = None      # Flag para herramienta disponible
 start_time = None  # Para calcular el tiempo transcurrido en modo automático
 pausa_event = threading.Event()
 pausa_event.set()
 
 def init():
     """Inicializa la conexión con el robot."""
-    global robot, sensorDI5, sensorDI1, conveyor_id, is_initialized
+    global robot, sensorDI5, sensorDI1, conveyor_id, is_initialized, has_conveyor, has_tool
     if is_initialized:
-        print("El robot ya está conectado.")
         return True
 
     attempts = 0
-    max_attempts = 2
+    max_attempts = 5  # Se aumentó de 2 a 5
 
+    # Intentar establecer la conexión con el robot
     while attempts < max_attempts:
         try:
             robot = NiryoRobot("10.0.0.101")
-            robot.calibrate_auto()
-            robot.update_tool()
-            sensorDI5 = PinID.DI5
-            sensorDI1 = PinID.DI1
-            conveyor_id = robot.set_conveyor()
-            is_initialized = True
-            print("Conexión con el robot establecida.")
-            return True
+            # Conexión establecida, salimos del bloque try
+            break
         except Exception as e:
             attempts += 1
-            print(f"Intento {attempts} fallido: No se pudo conectar al robot. Error: {e}")
+            print(f"[Robot] Intento {attempts} fallido al conectar: {e}")
+            time.sleep(3)  # Espera 3 segundos antes de reintentar
+    else:
+        print("No se pudo establecer conexión con el robot después de 5 intentos. Esto es una simulación.")
+        robot = None  # Simula que no hay robot conectado
+        is_initialized = False
+        return False
 
-    print("No se pudo establecer conexión con el robot después de 2 intentos. Esto es una simulación.")
-    robot = None  # Simula que no hay robot conectado
-    is_initialized = False
-    return False
+    # Separar la calibración de la conexión: realizarla fuera del bloque try/except anterior
+    try:
+        robot.calibrate_auto()
+    except Exception as cal_e:
+        print(f"[Robot] Error durante la calibración: {cal_e}")
+        # Nota: Si la calibración falla, se mantiene la sesión abierta
+
+    try:
+        robot.update_tool()
+        has_tool = (robot.get_current_tool_id() != ToolID.NONE)
+        sensorDI5 = PinID.DI5
+        sensorDI1 = PinID.DI1
+        try:
+            conveyor_id = robot.set_conveyor()
+        except NiryoRobotException:
+            logger.warning("Conveyor no conectado")
+            conveyor_id = None
+        has_conveyor = (conveyor_id is not None)
+    except Exception as e:
+        print(f"[Robot] Error durante la configuración inicial: {e}")
+
+    is_initialized = True
+    print("Conexión con el robot establecida.")
+    return True
 
 def exitNiryo():
     """Cierra la conexión con el robot."""
@@ -52,10 +76,34 @@ def exitNiryo():
     is_initialized = False
 
 def _pin_to_str(state):
-    """Convierte el estado de un pin a una cadena legible."""
+    """
+    Normaliza cualquier valor devuelto por robot.digital_read
+    a la cadena 'HIGH' o 'LOW'.
+
+    El robot puede devolver:
+      • PinState.HIGH o PinState.LOW
+      • una tupla   (PinState.HIGH, PinState.HIGH)
+      • True / False
+      • la propia cadena 'HIGH' / 'LOW'
+    """
+    # ► 1) Si viene en tupla, quédate con el primer elemento “útil”
+    if isinstance(state, tuple) and state:
+        state = state[0]
+
+    # ► 2) Casos por tipo
     if isinstance(state, PinState):
         return "HIGH" if state == PinState.HIGH else "LOW"
-    return "HIGH" if state else "LOW"
+
+    if isinstance(state, bool):
+        return "HIGH" if state else "LOW"
+
+    if isinstance(state, str):
+        up = state.upper()
+        return "HIGH" if up == "HIGH" else "LOW"  # cualquier otra cosa ⇒ LOW
+
+    # ► 3) Cualquier forma rara: registra y asume LOW
+    print(f"[WARN] valor de sensor no reconocido: {state!r}")
+    return "LOW"
 
 def get_sensor_states():
     """Obtiene el estado de los sensores DI1 y DI5."""
@@ -63,8 +111,17 @@ def get_sensor_states():
     try:
         if robot is None:
             return {"sensor_di1": "OFFLINE", "sensor_di5": "OFFLINE"}
-        di1 = _pin_to_str(robot.digital_read(sensorDI1))
-        di5 = _pin_to_str(robot.digital_read(sensorDI5))
+
+        di1_val = robot.digital_read(sensorDI1)
+        if isinstance(di1_val, tuple):
+            di1_val = di1_val[0]
+        di1 = _pin_to_str(di1_val)
+
+        di5_val = robot.digital_read(sensorDI5)
+        if isinstance(di5_val, tuple):
+            di5_val = di5_val[0]
+        di5 = _pin_to_str(di5_val)
+
         return {"sensor_di1": di1, "sensor_di5": di5}
     except Exception as e:
         print(f"Error leyendo sensores: {e}")
@@ -72,10 +129,10 @@ def get_sensor_states():
 
 def mover_cinta(velocidad, direccion):
     """Mueve la cinta transportadora en la dirección y velocidad especificadas."""
-    global robot, conveyor_id
-    if robot is None:
-        print("Error: Robot no inicializado.")
-        return False
+    global robot, conveyor_id, has_conveyor
+    if robot is None or not has_conveyor:
+        logger.error("Conveyor no disponible")
+        return "NO_CONVEYOR"
 
     try:
         if direccion == 'forward':
@@ -104,9 +161,10 @@ def parar_cinta():
 
 def control_herramienta(accion):
     """Activa o desactiva la herramienta del robot."""
-    if robot is None:
-        print("Error: Robot no inicializado.")
-        return False
+    global robot, has_tool
+    if robot is None or not has_tool:
+        logger.error("Tool no disponible")
+        return "NO_TOOL"
 
     try:
         if accion == 'activar':
@@ -234,7 +292,10 @@ def controlSensorDI1():
     if robot is None:
         # Simulación: retorna un valor aleatorio
         return "HIGH" if random.choice([True, False]) else "LOW"
-    return _pin_to_str(robot.digital_read(sensorDI1))
+    val = robot.digital_read(sensorDI1)
+    if isinstance(val, tuple):
+        val = val[0]
+    return _pin_to_str(val)
 
 def controlSensorDI5():
     """Controla el estado del sensor DI5."""
@@ -242,7 +303,10 @@ def controlSensorDI5():
     if robot is None:
         # Simulación: retorna un valor aleatorio
         return "HIGH" if random.choice([True, False]) else "LOW"
-    return _pin_to_str(robot.digital_read(sensorDI5))
+    val = robot.digital_read(sensorDI5)
+    if isinstance(val, tuple):
+        val = val[0]
+    return _pin_to_str(val)
 
 def mover_robot(x, y, z, roll, pitch, yaw):
     """Mueve el robot a la posición especificada usando juntas."""
@@ -255,9 +319,9 @@ def mover_robot(x, y, z, roll, pitch, yaw):
         # Cambiar a move_joints para trabajar con juntas
         robot.move_joints(x, y, z, roll, pitch, yaw)
         return True
-    except Exception as e:
-        print(f"Error al mover el robot: {e}")
-        return False
+    except NiryoRobotException as e:
+        logger.error(f"Error al mover el robot: {e}")
+        return "ROBOT_FAULT"
 
 def automatico():
     """Ejecuta el modo automático."""
