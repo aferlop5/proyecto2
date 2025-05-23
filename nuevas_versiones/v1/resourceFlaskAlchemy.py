@@ -211,6 +211,31 @@ def leer_sensores():
             except Exception as err:
                 print(f"[ERROR] al cerrar conexión: {err}")
 
+@robots.route("/robot/move", methods=["POST"])
+def move_robot():
+    try:
+        # Espera recibir un JSON con la cadena de articulaciones, por ejemplo:
+        # {"joints": "0.0, 0.5, -1.2, 0.0, -0.5, 0.1"}
+        data = request.get_json()
+        if not data or "joints" not in data:
+            return jsonify({"error": "No se proporcionaron las articulaciones"}), 400
+
+        joints_str = data["joints"]
+        joints = [float(valor.strip()) for valor in joints_str.split(',')]
+        if len(joints) != 6:
+            return jsonify({"error": "Se deben proporcionar 6 valores"}), 400
+
+        robot = NiryoRobot(ROBOT_IP)
+        robot.update_tool()
+        print(f"[DEBUG] Moviendo robot a la posición: {joints}")
+        robot.move_joints(*joints)
+        robot.close_connection()
+        return jsonify({"message": f"Robot movido a la posición {joints}"}), 200
+
+    except Exception as e:
+        print(f"[ERROR MOVE ROBOT] {e}")
+        return jsonify({"error": f"Error al mover el robot: {str(e)}"}), 500
+
 
 
 

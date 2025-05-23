@@ -96,6 +96,13 @@
     <div id="sensorOutput"></div>
   </div>
 
+  <div class="seccion">
+    <h2>Mover Robot</h2>
+    <input type="text" id="jointsInput" placeholder="Ej: 0.0, 0.5, -1.2, 0.0, -0.5, 0.1" />
+    <button onclick="moveRobot()">Mover Robot</button>
+    <div id="moveRobotOutput"></div>
+  </div>
+
   <div id="respuesta"></div>
 
   <script>
@@ -183,6 +190,25 @@
             document.getElementById("sensorOutput").innerText = "Error en la lectura";
           });
       }, 1000);
+    }
+
+    function moveRobot() {
+      const jointsStr = document.getElementById("jointsInput").value;
+      fetch(`${API_BASE}/robot/move`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ joints: jointsStr })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("moveRobotOutput").innerText = data.message || data.error;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("moveRobotOutput").innerText = "Error al mover el robot";
+      });
     }
   </script>
 </body>
