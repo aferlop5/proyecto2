@@ -90,6 +90,12 @@
     <p id="estadoSensores">Estado: --</p>
   </div>
 
+  <div class="seccion">
+    <h2>Lectura de Sensores</h2>
+    <button onclick="startSensorReading()">Iniciar Lectura de Sensores</button>
+    <div id="sensorOutput"></div>
+  </div>
+
   <div id="respuesta"></div>
 
   <script>
@@ -157,6 +163,26 @@
           document.getElementById("estadoSensores").innerText = "Estado: error";
           mostrarMensaje("Error al leer sensores");
         });
+    }
+
+    function startSensorReading() {
+      // Establece una lectura de sensores cada segundo
+      setInterval(() => {
+        fetch(`${API_BASE}/robot/sensors`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Error en la respuesta");
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.getElementById("sensorOutput").innerText = `DI5: ${data.DI5}, DI1: ${data.DI1}`;
+          })
+          .catch(error => {
+            console.error("Error al leer sensores:", error);
+            document.getElementById("sensorOutput").innerText = "Error en la lectura";
+          });
+      }, 1000);
     }
   </script>
 </body>

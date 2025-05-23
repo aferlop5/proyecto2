@@ -181,32 +181,27 @@ def belt_stop():
 def leer_sensores():
     robot = None
     try:
+        # Importar los identificadores y estados de pines
+        from pyniryo import PinID, PinState
         robot = NiryoRobot(ROBOT_IP)
-        d1 = robot.digital_read(1)
-        d5 = robot.digital_read(5)
+        # Leer los pines DI5 y DI1
+        estado_DI5 = robot.digital_read(PinID.DI5)
+        estado_DI1 = robot.digital_read(PinID.DI1)
 
-        d1_val = d1[0] if isinstance(d1, tuple) else d1
-        d5_val = d5[0] if isinstance(d5, tuple) else d5
-
-        if d1_val == 0 and d5_val == 0:
-            estado = "pieza alta"
-        elif d1_val == 0:
-            estado = "pieza baja"
-        else:
-            estado = "sin pieza"
+        # Interpretar el estado leído
+        result_DI5 = "ALTO" if estado_DI5 == PinState.HIGH else "BAJO"
+        result_DI1 = "ALTO" if estado_DI1 == PinState.HIGH else "BAJO"
 
         return jsonify({
-            "D1": d1_val,
-            "D5": d5_val,
-            "estado": estado
+            "DI5": result_DI5,
+            "DI1": result_DI1
         })
 
     except Exception as e:
         print(f"[ERROR SENSOR] {e}")
         return jsonify({
-            "D1": 1,
-            "D5": 1,
-            "estado": "error"
+            "DI5": "error",
+            "DI1": "error"
         }), 200
 
     finally:
