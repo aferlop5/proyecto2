@@ -132,21 +132,30 @@
 
     function setVelocidad(valor) {
       fetch(`${API_BASE}/robot/belt_speed/${valor}`, { method: "POST" })
-        .then(res => res.json())
-        .then(data => mostrarMensaje(data.message || "Velocidad cambiada"))
-        .catch(() => mostrarMensaje("Error al cambiar velocidad"));
+        .then(response => response.json())
+        .then(data => mostrarMensaje(data.message))
+        .catch(error => {
+          console.error("Error:", error);
+          mostrarMensaje("Error al establecer velocidad");
+        });
     }
 
     function leerSensores() {
       fetch(`${API_BASE}/robot/sensors`)
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById("estadoSensores").innerText =
-            `Estado: ${data.estado.toUpperCase()} (D1=${data.D1}, D5=${data.D5})`;
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Error en la respuesta de red");
+          }
+          return response.json();
         })
-        .catch(() => {
-          document.getElementById("estadoSensores").innerText =
-            "Error al leer sensores";
+        .then(data => {
+          document.getElementById("estadoSensores").innerText = "Estado: " + data.estado;
+          mostrarMensaje("Sensores leídos correctamente");
+        })
+        .catch(error => {
+          console.error("Error al leer sensores:", error);
+          document.getElementById("estadoSensores").innerText = "Estado: error";
+          mostrarMensaje("Error al leer sensores");
         });
     }
   </script>

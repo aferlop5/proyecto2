@@ -179,11 +179,11 @@ def belt_stop():
 
 @robots.route("/robot/sensors", methods=["GET"])
 def leer_sensores():
+    robot = None
     try:
         robot = NiryoRobot(ROBOT_IP)
         d1 = robot.digital_read(1)
         d5 = robot.digital_read(5)
-        robot.close_connection()
 
         d1_val = d1[0] if isinstance(d1, tuple) else d1
         d5_val = d5[0] if isinstance(d5, tuple) else d5
@@ -209,7 +209,14 @@ def leer_sensores():
             "estado": "error"
         }), 200
 
-        
+    finally:
+        if robot is not None:
+            try:
+                robot.close_connection()
+            except Exception as err:
+                print(f"[ERROR] al cerrar conexión: {err}")
+
+
 
 
 
