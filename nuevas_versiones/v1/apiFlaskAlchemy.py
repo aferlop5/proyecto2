@@ -6,11 +6,12 @@ from flask import Flask
 from resourceFlaskAlchemy import robots
 from flask_cors import CORS
 
-db_user = 'root'
-db_password = ''
+db_user = 'niryouser'
+# This is the password you set for 'niryouser' user
+db_password = 'user2025'
 
-# Usa "127.0.0.1" para conectarte al puerto mapeado por Docker.
-MYSQL_URI = f"mysql+pymysql://{db_user}:{db_password}@127.0.0.1:3306/niryodb"
+#POSTGRESQL_URI = f"postgresql://{db_user}:{db_password}@127.0.0.1/niryodb"
+MYSQL_URI = f"mysql+pymysql://{db_user}:{db_password}@172.17.0.1:3306/niryodb"
 # We link the database
 
 def create_api():
