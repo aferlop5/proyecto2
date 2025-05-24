@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Control del Robot Niryo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .seccion {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    #respuesta {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+    .boton-start {
+      background-color: #90ee90;
+      font-weight: bold;
+      border: 1px solid #888;
+    }
+    .sensor-status {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: 0 10px;
+      border-radius: 50%;
+      background-color: grey;
+      border: 2px solid #555;
+    }
+    .sensor-on {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Panel de Control del Robot</h1>
+
+  <div class="seccion">
+    <h2>Conexión</h2>
+    <button onclick="conectarRobot()">Conectar Robot</button>
+  </div>
+
+  <div class="seccion">
+    <h2>Control de Modo</h2>
+    <button onclick="accionRobot('modo/manual')">Modo Manual</button>
+    <button onclick="accionRobot('modo/auto')">Modo Automático</button>
+  </div>
+
+  <div class="seccion">
+    <h2>Control Manual (Pinza y Cinta)</h2>
+    <button id="btnGripOpen" onclick="controlManual('/robot/grip_open')" disabled>Abrir Pinza</button>
+    <button id="btnGripClose" onclick="controlManual('/robot/grip_close')" disabled>Cerrar Pinza</button>
+    <button id="btnBeltFwd" onclick="controlManual('/robot/belt_forward')" disabled>Mover Adelante</button>
+    <button id="btnBeltBack" onclick="controlManual('/robot/belt_backward')" disabled>Mover Atrás</button>
+    <button id="btnBeltStop" onclick="controlManual('/robot/belt_stop')" disabled>Parar Cinta</button>
+  </div>
+
+  <div class="seccion">
+    <h2>Velocidad Cinta</h2>
+    <button onclick="setVelocidad(25)">25%</button>
+    <button onclick="setVelocidad(50)">50%</button>
+    <button onclick="setVelocidad(75)">75%</button>
+    <button onclick="setVelocidad(100)">100%</button>
+  </div>
+
+  <div class="seccion">
+    <h2>Lectura de Sensores</h2>
+    <button onclick="startSensorReading()">Iniciar Lectura de Sensores</button>
+    <div id="sensorOutput"></div>
+  </div>
+
+  <div class="seccion">
+    <h2>Mover Robot</h2>
+    <input type="text" id="jointsInput" placeholder="Ej: 0.0, 0.5, -1.2, 0.0, -0.5, 0.1" />
+    <button onclick="moveRobot()">Mover Robot</button>
+    <div id="moveRobotOutput"></div>
+  </div>
+
+  <div id="respuesta"></div>
+
+  <script>
+    const API_BASE = "http://localhost:5000";
+
+    function mostrarMensaje(msg) {
+      document.getElementById("respuesta").innerText = msg;
+    }
+
+    function conectarRobot() {
+      mostrarMensaje("Robot conectado correctamente");
+    }
+
+    function accionRobot(accion) {
+      fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
+        .then(res => res.json())
+        .then(data => {
+          mostrarMensaje(data.message);
+          if (accion === "modo/manual") {
+            setManualControls(true);
+          } else if (accion === "modo/auto") {
+            setManualControls(false);
+          }
+        })
+        .catch(() => mostrarMensaje("Error al ejecutar acción"));
+    }
+
+    function setManualControls(enable) {
+      ["btnGripOpen", "btnGripClose", "btnBeltFwd", "btnBeltBack", "btnBeltStop"].forEach(id => {
+        document.getElementById(id).disabled = !enable;
+      });
+    }
+
+    function controlManual(endpoint) {
+      fetch(`${API_BASE}${endpoint}`, { method: "POST" })
+        .then(res => res.json())
+        .then(data => mostrarMensaje(data.message || "Acción realizada"))
+        .catch(() => mostrarMensaje("Error en el control manual"));
+    }
+
+    function setVelocidad(valor) {
+      fetch(`${API_BASE}/robot/belt_speed/${valor}`, { method: "POST" })
+        .then(response => response.json())
+        .then(data => mostrarMensaje(data.message))
+        .catch(error => {
+          console.error("Error:", error);
+          mostrarMensaje("Error al establecer velocidad");
+        });
+    }
+
+    function startSensorReading() {
+      // Establece una lectura de sensores cada segundo
+      setInterval(() => {
+        fetch(`${API_BASE}/robot/sensors`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Error en la respuesta");
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.getElementById("sensorOutput").innerText = `DI5: ${data.DI5}, DI1: ${data.DI1}`;
+          })
+          .catch(error => {
+            console.error("Error al leer sensores:", error);
+            document.getElementById("sensorOutput").innerText = "Error en la lectura";
+          });
+      }, 1000);
+    }
+
+    function moveRobot() {
+      const jointsStr = document.getElementById("jointsInput").value;
+      fetch(`${API_BASE}/robot/move`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ joints: jointsStr })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("moveRobotOutput").innerText = data.message || data.error;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("moveRobotOutput").innerText = "Error al mover el robot";
+      });
+    }
+  </script>
+</body>
+</html>
