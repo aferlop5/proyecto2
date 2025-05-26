@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Fondo gris muy claro */
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    color: #222222; /* Títulos en gris oscuro casi negro */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-weight: 600; /* Peso más marcado */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif; /* Fuente llamativa y moderna */
+    font-size: 2.5rem; /* Tamaño más grande */
+    color: #222222; /* Gris oscuro casi negro */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 2px; /* Más separación entre letras */
+    font-weight: 600; /* Peso más marcado */
+    margin-bottom: 20px;
+    margin-top: 0px; /* Más espacio debajo del título */
+    position: relative; /* Para posicionar la línea decorativa */
+
+    /* Línea decorativa debajo del título */
+    border-bottom: 3px solid #5c7c8a; /* Línea azul grisáceo */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+}
+
+h2 {
+    font-size: 1.5rem; /* Tamaño ligeramente menor para subtítulos */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 20px;
+}
+
+.col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.col.small {
+    min-width: 200px;
+}
+
+.seccion {
+    background: #ffffff; /* Fondo blanco */
+    padding: 15px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #e0e0e0; /* Bordes suaves */
+    text-align: center;
+}
+
+button {
+    background-color: #5c7c8a; /* Azul grisáceo */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #49606e; /* Azul grisáceo más oscuro */
+}
+
+button:disabled {
+    background-color: #cfd8dc; /* Gris azulado claro */
+    color: #666666; /* Texto gris */
+    cursor: not-allowed;
+}
+
+#respuesta {
+    color: #222222; /* Texto en gris oscuro */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.control-group {
+    margin-bottom: 20px; /* Espaciado entre grupos */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #e0e0e0; /* Borde suave */
+    border-radius: 6px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo ligeramente distinto */
+}
+
+.control-group h3 {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    font-size: 14px; /* Tamaño reducido */
+    color: #555555; /* Color más suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-weight: 500; /* Peso más ligero */
+    margin-bottom: 10px; /* Espaciado inferior */
+    text-align: center; /* Centrar horizontalmente */
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
