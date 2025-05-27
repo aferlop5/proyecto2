@@ -53,7 +53,8 @@
           if (accion === "modo/manual") {
             setManualControls(true);
             mostrarControlesManual();
-            document.getElementById("modo-activo").innerHTML = "<p>Modo manual activado</p>";
+            // Se elimina la siguiente línea para evitar sobrescribir el panel de controles manual
+            // document.getElementById("modo-activo").innerHTML = "<p>Modo manual activado</p>";
           } else if (accion === "modo/auto") {
             setManualControls(false);
             const modoActivo = document.getElementById("modo-activo");
