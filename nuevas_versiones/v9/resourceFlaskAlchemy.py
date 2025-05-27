@@ -105,84 +105,74 @@ def set_modo_auto(id):
 
         start_time = time.time()
 
-        def generate_responses():
-            nonlocal small_pieces, large_pieces
-            while small_pieces < 3 or large_pieces < 3:
-                # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
-                while robot.digital_read(DI5) == PinState.HIGH:
-                    robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
-                robot.stop_conveyor(conveyor_id)
-
-                # Discriminar el tipo de pieza según DI1
-                if robot.digital_read(DI1) == PinState.LOW:
-                    start_time_piece = time.time()
-                    # Retroceder la cinta durante 8 segundos para desechar pieza grande
-                    while time.time() - start_time_piece < 8:
-                        robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
-                    robot.stop_conveyor(conveyor_id)
-                    large_pieces += 1
-                    print(f"[DEBUG] Piezas grandes desechadas: {large_pieces}")
-                    yield jsonify({
-                        "type": "large_piece",
-                        "small_pieces": small_pieces,
-                        "large_pieces": large_pieces
-                    })
-                else:
-                    # Ejecución de rutina pick and place para pieza pequeña
-                    robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                    robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
-                    robot.grasp_with_tool()
-                    robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
-                    
-                    # Seleccionar offset para paletizado
-                    if small_pieces < len(offsets):
-                        current_offset = offsets[small_pieces]
-                    else:
-                        current_offset = (0, 0)
-                        
-                    paletize_pose = PoseObject(
-                        x=central_pose.x + current_offset[0],
-                        y=central_pose.y + current_offset[1],
-                        z=central_pose.z,
-                        roll=central_pose.roll,
-                        pitch=central_pose.pitch,
-                        yaw=central_pose.yaw,
-                    )
-                    robot.move_pose(central_pose)
-                    robot.move_pose(paletize_pose)
-                    robot.release_with_tool()
-                    robot.move_pose(central_pose)
-                    robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                    small_pieces += 1
-                    print(f"[DEBUG] Piezas pequeñas paletizadas: {small_pieces}")
-                    yield jsonify({
-                        "type": "small_piece",
-                        "small_pieces": small_pieces,
-                        "large_pieces": large_pieces
-                    })
-
-                # Verificar si se han alcanzado los límites y salir del bucle
-                if small_pieces >= 3 and large_pieces >= 3:
-                    print("[DEBUG] Se han alcanzado los límites de piezas. Finalizando...")
-                    robot.stop_conveyor(conveyor_id)  # Detener la cinta antes de salir
-                    break
-
-            # Finalizar el proceso: detener la cinta y cerrar conexión
+        while small_pieces < 3 or large_pieces < 3:
+            # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
+            while robot.digital_read(DI5) == PinState.HIGH:
+                robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
             robot.stop_conveyor(conveyor_id)
-            robot.unset_conveyor(conveyor_id)
-            robot.close_connection()
 
-            end_time = time.time()
-            elapsed_time = end_time - start_time
+            # Discriminar el tipo de pieza según DI1
+            if robot.digital_read(DI1) == PinState.LOW:
+                start_time_piece = time.time()
+                # Retroceder la cinta durante 8 segundos para desechar pieza grande
+                while time.time() - start_time_piece < 8:
+                    robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
+                robot.stop_conveyor(conveyor_id)
+                large_pieces += 1
+                print(f"[DEBUG] Piezas grandes desechadas: {large_pieces}")
+                return jsonify({
+                    "type": "large_piece",
+                    "small_pieces": small_pieces,
+                    "large_pieces": large_pieces
+                })
+            else:
+                # Ejecución de rutina pick and place para pieza pequeña
+                robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
+                robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
+                robot.grasp_with_tool()
+                robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
+                
+                # Seleccionar offset para paletizado
+                if small_pieces < len(offsets):
+                    current_offset = offsets[small_pieces]
+                else:
+                    current_offset = (0, 0)
+                    
+                paletize_pose = PoseObject(
+                    x=central_pose.x + current_offset[0],
+                    y=central_pose.y + current_offset[1],
+                    z=central_pose.z,
+                    roll=central_pose.roll,
+                    pitch=central_pose.pitch,
+                    yaw=central_pose.yaw,
+                )
+                robot.move_pose(central_pose)
+                robot.move_pose(paletize_pose)
+                robot.release_with_tool()
+                robot.move_pose(central_pose)
+                robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
+                small_pieces += 1
+                print(f"[DEBUG] Piezas pequeñas paletizadas: {small_pieces}")
+                return jsonify({
+                    "type": "small_piece",
+                    "small_pieces": small_pieces,
+                    "large_pieces": large_pieces
+                })
 
-            yield jsonify({
-                "message": f"Modo automático ejecutado. {small_pieces} piezas pequeñas paletizadas y {large_pieces} piezas grandes desechadas en {elapsed_time:.2f} segundos. Estado actualizado a 'auto' en la DB.",
-                "elapsed_time": f"{elapsed_time:.2f}",
-                "small_pieces": small_pieces,
-                "large_pieces": large_pieces
-            })
+        # Finalizar el proceso: detener la cinta y cerrar conexión
+        robot.stop_conveyor(conveyor_id)
+        robot.unset_conveyor(conveyor_id)
+        robot.close_connection()
 
-        return generate_responses()
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+
+        return jsonify({
+            "message": f"Modo automático ejecutado. {small_pieces} piezas pequeñas paletizadas y {large_pieces} piezas grandes desechadas en {elapsed_time:.2f} segundos. Estado actualizado a 'auto' en la DB.",
+            "elapsed_time": f"{elapsed_time:.2f}",
+            "small_pieces": small_pieces,
+            "large_pieces": large_pieces
+        })
 
     except Exception as e:
         print(f"[ERROR AUTO] {e}")
