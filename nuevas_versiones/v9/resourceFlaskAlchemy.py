@@ -153,6 +153,7 @@ def set_modo_auto(id):
             # Verificar si se han alcanzado los límites y salir del bucle
             if small_pieces >= 3 and large_pieces >= 3:
                 print("[DEBUG] Se han alcanzado los límites de piezas. Finalizando...")
+                robot.stop_conveyor(conveyor_id)  # Detener la cinta antes de salir
                 break
 
         # Finalizar el proceso: detener la cinta y cerrar conexión
