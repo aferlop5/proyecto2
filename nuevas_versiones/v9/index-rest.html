@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Control del Robot Niryo</title>
+  <!-- Fuente Oswald desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Panel de Control del Robot</h1>
+
+  <div class="container">
+    <!-- Fila 1 -->
+    <div class="row">
+      <div class="col">
+        <div class="seccion">
+          <h2>Conexión</h2>
+          <button onclick="conectarRobot()">Conectar Robot</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="seccion">
+          <h2>Control de Modo</h2>
+          <button onclick="accionRobot('modo/manual')">Modo Manual</button>
+          <button onclick="accionRobot('modo/auto')">Modo Automático</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor dinámico para controles según el modo -->
+    <div id="modo-activo" class="row"></div>
+  </div>
+
+  <div id="respuesta"></div>
+
+  <script>
+    const API_BASE = "http://localhost:5000";
+
+    function mostrarMensaje(msg) {
+      document.getElementById("respuesta").innerText = msg;
+    }
+
+    function conectarRobot() {
+      mostrarMensaje("Robot conectado correctamente");
+    }
+
+    function accionRobot(accion) {
+      fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
+        .then(res => res.json())
+        .then(data => {
+          if (accion === "modo/manual") {
+            setManualControls(true);
+            mostrarControlesManual();
+          } else if (accion === "modo/auto") {
+            setManualControls(false);
+            document.getElementById("modo-activo").innerHTML = ""; // Limpia el contenedor
+            if (data.elapsed_time) {
+              document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
+            }
+            if (data.small_pieces !== undefined && data.large_pieces !== undefined) {
+              const contadorPiezas = document.querySelector("#modo-activo .seccion p");
+              contadorPiezas.innerText = `Caja pequeña: ${data.small_pieces} | Caja grande: ${data.large_pieces}`;
+            }
+          }
+        })
+        .catch(() => console.error("Error al ejecutar acción"));
+    }
+
+    function mostrarControlesManual() {
+      const modoActivo = document.getElementById("modo-activo");
+      modoActivo.innerHTML = `
+        <div class="col">
+          <div class="seccion">
+            <h2>Control Manual</h2>
+            <div>
+              <h3>Pinza</h3>
+              <button id="btnGripOpen" onclick="controlManual('/robot/grip_open')">Abrir Pinza</button>
+              <button id="btnGripClose" onclick="controlManual('/robot/grip_close')">Cerrar Pinza</button>
+            </div>
+            <div>
+              <h3>Cinta</h3>
+              <button id="btnBeltFwd" onclick="controlManual('/robot/belt_forward')">Mover Adelante</button>
+              <button id="btnBeltBack" onclick="controlManual('/robot/belt_backward')">Mover Atrás</button>
+              <button id="btnBeltStop" onclick="controlManual('/robot/belt_stop')">Detener</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Lectura de Sensores</h2>
+            <button onclick="startSensorReading()">Iniciar Lectura</button>
+            <p id="sensorOutput">Esperando datos...</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Velocidad Cinta</h2>
+            <label for="velocidad">Selecciona la velocidad:</label>
+            <select id="velocidad" onchange="setVelocidad(this.value)">
+              <option value="25">25%</option>
+              <option value="50">50%</option>
+              <option value="75">75%</option>
+              <option value="100">100%</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Mover Robot</h2>
+            <input id="jointsInput" type="text" placeholder="Introduce posiciones de las articulaciones" />
+            <button onclick="moveRobot()">Mover</button>
+            <p id="moveRobotOutput"></p>
+          </div>
+        </div>
+      `;
+    }
+
+    function setManualControls(enable) {
+      ["btnGripOpen", "btnGripClose", "btnBeltFwd", "btnBeltBack", "btnBeltStop"].forEach(id => {
+        document.getElementById(id).disabled = !enable;
+      });
+    }
+
+    function controlManual(endpoint) {
+      fetch(`${API_BASE}${endpoint}`, { method: "POST" })
+        .then(res => res.json())
+        .then(data => mostrarMensaje(data.message || "Acción realizada"))
+        .catch(() => mostrarMensaje("Error en el control manual"));
+    }
+
+    function setVelocidad(valor) {
+      fetch(`${API_BASE}/robot/belt_speed/${valor}`, { method: "POST" })
+        .then(response => response.json())
+        .then(data => mostrarMensaje(data.message))
+        .catch(error => {
+          console.error("Error:", error);
+          mostrarMensaje("Error al establecer velocidad");
+        });
+    }
+
+    function startSensorReading() {
+      setInterval(() => {
+        fetch(`${API_BASE}/robot/sensors`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Error en la respuesta");
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.getElementById("sensorOutput").innerText = `DI5: ${data.DI5}, DI1: ${data.DI1}`;
+          })
+          .catch(error => {
+            console.error("Error al leer sensores:", error);
+            document.getElementById("sensorOutput").innerText = "Error en la lectura";
+          });
+      }, 1000);
+    }
+
+    function moveRobot() {
+      const jointsStr = document.getElementById("jointsInput").value;
+      fetch(`${API_BASE}/robot/move`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ joints: jointsStr })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("moveRobotOutput").innerText = data.message || data.error;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("moveRobotOutput").innerText = "Error al mover el robot";
+      });
+    }
+
+    document.querySelector("button[onclick=\"accionRobot('modo/manual')\"]").addEventListener("click", () => {
+      const modoActivo = document.getElementById("modo-activo");
+      modoActivo.innerHTML = `
+        <div class="col">
+          <div class="seccion">
+            <h2>Control Manual</h2>
+            <div>
+              <h3>Pinza</h3>
+              <button id="btnGripOpen" onclick="controlManual('/robot/grip_open')">Abrir Pinza</button>
+              <button id="btnGripClose" onclick="controlManual('/robot/grip_close')">Cerrar Pinza</button>
+            </div>
+            <div>
+              <h3>Cinta</h3>
+              <button id="btnBeltFwd" onclick="controlManual('/robot/belt_forward')">Mover Adelante</button>
+              <button id="btnBeltBack" onclick="controlManual('/robot/belt_backward')">Mover Atrás</button>
+              <button id="btnBeltStop" onclick="controlManual('/robot/belt_stop')">Detener</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Lectura de Sensores</h2>
+            <button onclick="startSensorReading()">Iniciar Lectura</button>
+            <p id="sensorOutput">Esperando datos...</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Velocidad Cinta</h2>
+            <label for="velocidad">Selecciona la velocidad:</label>
+            <select id="velocidad" onchange="setVelocidad(this.value)">
+              <option value="25">25%</option>
+              <option value="50">50%</option>
+              <option value="75">75%</option>
+              <option value="100">100%</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Mover Robot</h2>
+            <input id="jointsInput" type="text" placeholder="Introduce posiciones de las articulaciones" />
+            <button onclick="moveRobot()">Mover</button>
+            <p id="moveRobotOutput"></p>
+          </div>
+        </div>
+      `;
+    });
+
+    document.querySelector("button[onclick=\"accionRobot('modo/auto')\"]").addEventListener("click", () => {
+      const modoActivo = document.getElementById("modo-activo");
+      modoActivo.innerHTML = `
+        <div class="col">
+          <div class="seccion">
+            <h2>Contador de Piezas</h2>
+            <p>Caja pequeña: 0 | Caja grande: 0 | Desechadas: 0</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Estados en Tiempo Real</h2>
+            <p>Cinta: -</p>
+            <p>Pinza: -</p>
+            <p>Sensores: -</p>
+            <p>Pose: -</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Historial de Acciones</h2>
+            <ul id="historialAcciones">
+              <!-- Lista vacía por ahora -->
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Cronómetro</h2>
+            <p id="cronometro">Tiempo transcurrido: 00:00</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Controles</h2>
+            <button onclick="pausarAutomatico()">Pausar Automático</button>
+            <button onclick="reanudarAutomatico()">Reanudar Automático</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="seccion">
+            <h2>Zona Avanzada</h2>
+            <p>Zona para funcionalidades avanzadas (opcional)</p>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
