@@ -150,12 +150,18 @@ def set_modo_auto(id):
                 small_pieces += 1
                 print(f"[DEBUG] Piezas pequeñas paletizadas: {small_pieces}")
 
-        end_time = time.time()
-        elapsed_time = end_time - start_time
+            # Verificar si se han alcanzado los límites y salir del bucle
+            if small_pieces >= 3 and large_pieces >= 3:
+                print("[DEBUG] Se han alcanzado los límites de piezas. Finalizando...")
+                break
 
         # Finalizar el proceso: detener la cinta y cerrar conexión
+        robot.stop_conveyor(conveyor_id)
         robot.unset_conveyor(conveyor_id)
         robot.close_connection()
+
+        end_time = time.time()
+        elapsed_time = end_time - start_time
 
         return jsonify({
             "message": f"Modo automático ejecutado. {small_pieces} piezas pequeñas paletizadas y {large_pieces} piezas grandes desechadas en {elapsed_time:.2f} segundos. Estado actualizado a 'auto' en la DB.",
