@@ -61,115 +61,12 @@ def set_modo_manual(id):
 
 @robots.route("/robots/<int:id>/modo/auto", methods=["POST"])
 def set_modo_auto(id):
-<<<<<<< HEAD
-    robot_record = Robots.query.filter_by(robot_id=id).first()
-    if not robot_record:
-        return jsonify({"error": "Robot no encontrado"}), 404
-
-    # Actualizar el estado en la base de datos a "auto"
-    robot_record.robot_desc = "auto"
-    db.session.commit()
-
-    try:
-        import time
-        from pyniryo import (
-            NiryoRobot,
-            ConveyorDirection,
-            PinID,
-            PinState,
-            PoseObject
-        )
-
-        # Conectar y calibrar el robot
-        robot = NiryoRobot(ROBOT_IP)
-        robot.calibrate_auto()
-        robot.update_tool()
-
-        DI5 = PinID.DI5
-        DI1 = PinID.DI1
-
-        # Inicializar la cinta transportadora y mover a la posición inicial
-        conveyor_id = robot.set_conveyor()
-        initial_pose = [-0.01, 0.61, -1.29, 0.07, -0.53, -0.2]
-        robot.move_joints(*initial_pose)
-
-        small_pieces = 0
-        large_pieces = 0
-
-        # Definir posición central de paletizado y offsets
-        central_pose = PoseObject(x=0.035, y=0.242, z=0.122, roll=-3.092, pitch=1.458, yaw=-1.413)
-        offsets = [
-            (-0.075, -0.075),  # Círculo inferior izquierdo
-            (0.075, -0.075),   # Círculo inferior derecho
-            (-0.075, 0.075)    # Círculo superior izquierdo
-        ]
-
-        start_time = time.time()
-
-        while small_pieces < 3 or large_pieces < 3:
-            # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
-            while robot.digital_read(DI5) == PinState.HIGH:
-                robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
-            robot.stop_conveyor(conveyor_id)
-
-            # Discriminar el tipo de pieza según DI1
-            if robot.digital_read(DI1) == PinState.LOW:
-                start_time_piece = time.time()
-                # Retroceder la cinta durante 8 segundos para desechar pieza grande
-                while time.time() - start_time_piece < 8:
-                    robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
-                robot.stop_conveyor(conveyor_id)
-                large_pieces += 1
-            else:
-                # Ejecución de rutina pick and place para pieza pequeña
-                robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
-                robot.grasp_with_tool()
-                robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
-                
-                # Seleccionar offset para paletizado
-                if small_pieces < len(offsets):
-                    current_offset = offsets[small_pieces]
-                else:
-                    current_offset = (0, 0)
-                    
-                paletize_pose = PoseObject(
-                    x=central_pose.x + current_offset[0],
-                    y=central_pose.y + current_offset[1],
-                    z=central_pose.z,
-                    roll=central_pose.roll,
-                    pitch=central_pose.pitch,
-                    yaw=central_pose.yaw,
-                )
-                robot.move_pose(central_pose)
-                robot.move_pose(paletize_pose)
-                robot.release_with_tool()
-                robot.move_pose(central_pose)
-                robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                small_pieces += 1
-
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-
-        # Finalizar el proceso: detener la cinta y cerrar conexión
-        robot.unset_conveyor(conveyor_id)
-        robot.close_connection()
-
-        return jsonify({
-            "message": f"Modo automático ejecutado. {small_pieces} piezas pequeñas paletizadas y {large_pieces} piezas grandes desechadas en {elapsed_time:.2f} segundos. Estado actualizado a 'auto' en la DB."
-        })
-
-    except Exception as e:
-        print(f"[ERROR AUTO] {e}")
-        abort(500, description=f"Error en modo automático: {str(e)}")
-=======
     robot = Robots.query.filter_by(robot_id=id).first()
     if not robot:
         return jsonify({"error": "Robot no encontrado"}), 404
     robot.robot_desc = "auto"
     db.session.commit()
     return jsonify({"message": "Modo cambiado a AUTOMÁTICO"})
->>>>>>> c9546ab058dfbacb469aa9a03934f8522bbb697b
 
 # ======== CONTROL FÍSICO ========
 
