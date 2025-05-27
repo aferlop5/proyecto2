@@ -64,44 +64,43 @@ socketio = SocketIO()  # Ajusta la inicialización según tu configuración
 
 def sensor_updater(robot, DI5, DI1, auto_flag):
     from pyniryo import PinState
-    while auto_flag[0]:
-        sensor_val_DI5 = "ALTO" if robot.digital_read(DI5) == PinState.HIGH else "BAJO"
-        sensor_val_DI1 = "ALTO" if robot.digital_read(DI1) == PinState.HIGH else "BAJO"
+    sensor_val_DI5 = "ALTO" if robot.digital_read(DI5) == PinState.HIGH else "BAJO"
+    sensor_val_DI1 = "ALTO" if robot.digital_read(DI1) == PinState.HIGH else "BAJO"
+    
+    # Leer la posición actual del robot
+    try:
+        current_pose = robot.get_pose()
+        pose_data = {
+            "x": current_pose.x,
+            "y": current_pose.y,
+            "z": current_pose.z,
+            "roll": current_pose.roll,
+            "pitch": current_pose.pitch,
+            "yaw": current_pose.yaw
+        }
+    except Exception as e:
+        pose_data = "N/A"
         
-        # Leer la posición actual del robot
-        try:
-            current_pose = robot.get_pose()
-            pose_data = {
-                "x": current_pose.x,
-                "y": current_pose.y,
-                "z": current_pose.z,
-                "roll": current_pose.roll,
-                "pitch": current_pose.pitch,
-                "yaw": current_pose.yaw
-            }
-        except Exception as e:
-            pose_data = "N/A"
+    # Leer estado de la cinta
+    try:
+        belt_state = "ON" if robot.is_conveyor_running() else "OFF"
+    except Exception as e:
+        belt_state = "N/A"
         
-        # Leer estado de la cinta (se espera que robot.is_conveyor_running() retorne True/False)
-        try:
-            belt_state = "ON" if robot.is_conveyor_running() else "OFF"
-        except Exception as e:
-            belt_state = "N/A"
+    # Leer estado de la pinza
+    try:
+        gripper_state = "ABIERTO" if robot.is_gripper_open() else "CERRADO"
+    except Exception as e:
+        gripper_state = "N/A"
         
-        # Leer estado de la pinza (se espera que robot.is_gripper_open() retorne True/False)
-        try:
-            gripper_state = "ABIERTO" if robot.is_gripper_open() else "CERRADO"
-        except Exception as e:
-            gripper_state = "N/A"
-
-        emit('update_sensors', {
-            'DI5': sensor_val_DI5,
-            'DI1': sensor_val_DI1,
-            'pose': pose_data,
-            'belt': belt_state,
-            'gripper': gripper_state
-        }, broadcast=True)
-        time.sleep(0.5)
+    # Devuelve los valores medidos en formato JSON
+    return {
+        'DI5': sensor_val_DI5,
+        'DI1': sensor_val_DI1,
+        'pose': pose_data,
+        'belt': belt_state,
+        'gripper': gripper_state
+    }
 
 def emit_counters_update(small, large):
     # "large" se usa tanto para Caja grande como para Desechadas
@@ -326,29 +325,20 @@ def belt_stop():
 def leer_sensores():
     robot = None
     try:
-        # Importar los identificadores y estados de pines
-        from pyniryo import PinID, PinState
+        from pyniryo import PinID
         robot = NiryoRobot(ROBOT_IP)
-        # Leer los pines DI5 y DI1
-        estado_DI5 = robot.digital_read(PinID.DI5)
-        estado_DI1 = robot.digital_read(PinID.DI1)
-
-        # Interpretar el estado leído
-        result_DI5 = "ALTO" if estado_DI5 == PinState.HIGH else "BAJO"
-        result_DI1 = "ALTO" if estado_DI1 == PinState.HIGH else "BAJO"
-
-        return jsonify({
-            "DI5": result_DI5,
-            "DI1": result_DI1
-        })
-
+        # Invocar sensor_updater para obtener la lectura actual
+        sensor_data = sensor_updater(robot, PinID.DI5, PinID.DI1)
+        return jsonify(sensor_data)
     except Exception as e:
         print(f"[ERROR SENSOR] {e}")
         return jsonify({
             "DI5": "error",
-            "DI1": "error"
+            "DI1": "error",
+            "pose": "N/A",
+            "belt": "N/A",
+            "gripper": "N/A"
         }), 200
-
     finally:
         if robot is not None:
             try:
