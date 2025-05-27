@@ -49,7 +49,6 @@
       fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
         .then(res => res.json())
         .then(data => {
-          mostrarMensaje(data.message);
           if (accion === "modo/manual") {
             setManualControls(true);
             mostrarControlesManual();
@@ -57,13 +56,12 @@
           } else if (accion === "modo/auto") {
             setManualControls(false);
             document.getElementById("modo-activo").innerHTML = ""; // Limpia el contenedor
-            // Actualiza el cronómetro con el tiempo transcurrido devuelto por el modo automático
-            if(data.elapsed_time){
+            if (data.elapsed_time) {
               document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
             }
           }
         })
-        .catch(() => mostrarMensaje("Error al ejecutar acción"));
+        .catch(() => console.error("Error al ejecutar acción"));
     }
 
     function mostrarControlesManual() {
