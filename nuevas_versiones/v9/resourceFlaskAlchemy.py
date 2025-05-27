@@ -73,7 +73,7 @@ def set_modo_auto(id):
     start_time = time.time()  # Guardar el tiempo de inicio
 
     try:
-        import time
+        
         from pyniryo import (
             NiryoRobot,
             ConveyorDirection,
