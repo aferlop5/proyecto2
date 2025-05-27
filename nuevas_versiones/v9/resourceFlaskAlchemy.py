@@ -105,6 +105,7 @@ def set_modo_auto(id):
 
         start_time = time.time()
 
+        # Modificar el bucle para detenerse cuando ambos contadores lleguen a 3
         while small_pieces < 3 or large_pieces < 3:
             # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
             while robot.digital_read(DI5) == PinState.HIGH:
@@ -119,6 +120,7 @@ def set_modo_auto(id):
                     robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
                 robot.stop_conveyor(conveyor_id)
                 large_pieces += 1
+                print(f"[DEBUG] Piezas grandes desechadas: {large_pieces}")
             else:
                 # Ejecución de rutina pick and place para pieza pequeña
                 robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
@@ -146,6 +148,7 @@ def set_modo_auto(id):
                 robot.move_pose(central_pose)
                 robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
                 small_pieces += 1
+                print(f"[DEBUG] Piezas pequeñas paletizadas: {small_pieces}")
 
         end_time = time.time()
         elapsed_time = end_time - start_time
