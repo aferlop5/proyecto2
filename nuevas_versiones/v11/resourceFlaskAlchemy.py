@@ -122,7 +122,7 @@ def routine_auto(id):
                 (-0.075, 0.075)    # Círculo superior izquierdo
             ]
 
-            # Al principio de routine_auto (después de definir small_pieces...)
+            # Recuperar el último registro de progreso, si existe
             last = EstadoRobot.query.order_by(EstadoRobot.id.desc()).first()
             if last:
                 small_pieces = last.small_pieces
@@ -149,11 +149,11 @@ def routine_auto(id):
                         })
                         last_pose_time = current_time
 
-                    # Pausa si se ha pedido
+                    # Pausa si se ha solicitado
                     while pause_event.is_set() and not stop_event.is_set():
                         time.sleep(0.1)
 
-                    # Paro definitivo si se ha pedido
+                    # Parar si se ha solicitado
                     if stop_event.is_set():
                         break
 
@@ -197,7 +197,7 @@ def routine_auto(id):
                         robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
                         small_pieces += 1
 
-                    # Actualizar progreso
+                    # Actualizar el registro de progreso
                     with progress_lock:
                         progress_data.update(
                             small=small_pieces,
