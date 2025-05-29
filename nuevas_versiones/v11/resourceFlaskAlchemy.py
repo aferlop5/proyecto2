@@ -74,151 +74,154 @@ def set_modo_auto(id):
     return jsonify({"message": "Modo automático iniciado"})
 
 def routine_auto(id):
-    global progress_data
-    small_pieces = progress_data["small"]
-    large_pieces = progress_data["large"]
-    offset_idx = progress_data["offset_idx"]
+    from apiFlaskAlchemy import create_api
+    app = create_api()  # Obtiene la instancia de la aplicación
+    with app.app_context():
+        global progress_data
+        small_pieces = progress_data["small"]
+        large_pieces = progress_data["large"]
+        offset_idx = progress_data["offset_idx"]
 
-    robot_record = Robots.query.filter_by(robot_id=id).first()
-    if not robot_record:
-        return jsonify({"error": "Robot no encontrado"}), 404
+        robot_record = Robots.query.filter_by(robot_id=id).first()
+        if not robot_record:
+            return jsonify({"error": "Robot no encontrado"}), 404
 
-    # Actualizar el estado en la base de datos a "auto"
-    robot_record.robot_desc = "auto"
-    db.session.commit()
+        # Actualizar el estado en la base de datos a "auto"
+        robot_record.robot_desc = "auto"
+        db.session.commit()
 
-    start_time = time.time()  # Guardar el tiempo de inicio
-
-    try:
-        from pyniryo import (
-            NiryoRobot,
-            ConveyorDirection,
-            PinID,
-            PinState,
-            PoseObject
-        )
-
-        # Conectar y calibrar el robot
-        robot = NiryoRobot(ROBOT_IP)
-        robot.calibrate_auto()
-        robot.update_tool()
-
-        DI5 = PinID.DI5
-        DI1 = PinID.DI1
-
-        # Inicializar la cinta transportadora y mover a la posición inicial
-        conveyor_id = robot.set_conveyor()
-        initial_pose = [-0.01, 0.61, -1.29, 0.07, -0.53, -0.2]
-        robot.move_joints(*initial_pose)
-
-        gripper_status = "unknown"
-        central_pose = PoseObject(x=0.035, y=0.242, z=0.122, roll=-3.092, pitch=1.458, yaw=-1.413)
-        offsets = [
-            (-0.075, -0.075),  # Círculo inferior izquierdo
-            (0.075, -0.075),   # Círculo inferior derecho
-            (-0.075, 0.075)    # Círculo superior izquierdo
-        ]
-
-        # Al principio de routine_auto (después de definir small_pieces...)
-        last = EstadoRobot.query.order_by(EstadoRobot.id.desc()).first()
-        if last:
-            small_pieces = last.small_pieces
-            large_pieces = last.large_pieces
-            offset_idx = small_pieces  # o calcula según tu lógica
+        start_time = time.time()  # Guardar el tiempo de inicio
 
         try:
-            last_pose_time = time.time()
+            from pyniryo import (
+                NiryoRobot,
+                ConveyorDirection,
+                PinID,
+                PinState,
+                PoseObject
+            )
 
-            while small_pieces < 3 or large_pieces < 3:
-                # Registrar la pose cada 0.2 segundos
-                current_time = time.time()
-                if current_time - last_pose_time >= 0.2:
-                    pose = robot.get_current_pose()
-                    publicar_estado({
-                        "small_pieces": small_pieces,
-                        "large_pieces": large_pieces,
-                        "belt_status": "running",
-                        "belt_speed": velocidad_cinta,
-                        "gripper_status": gripper_status,
-                        "sensor_DI1": "HIGH" if robot.digital_read(DI1) == PinState.HIGH else "LOW",
-                        "sensor_DI5": "HIGH" if robot.digital_read(DI5) == PinState.HIGH else "LOW",
-                        "pose": str(pose)
-                    })
-                    last_pose_time = current_time
+            # Conectar y calibrar el robot
+            robot = NiryoRobot(ROBOT_IP)
+            robot.calibrate_auto()
+            robot.update_tool()
 
-                # Pausa si se ha pedido
-                while pause_event.is_set() and not stop_event.is_set():
-                    time.sleep(0.1)
+            DI5 = PinID.DI5
+            DI1 = PinID.DI1
 
-                # Paro definitivo si se ha pedido
-                if stop_event.is_set():
-                    break
+            # Inicializar la cinta transportadora y mover a la posición inicial
+            conveyor_id = robot.set_conveyor()
+            initial_pose = [-0.01, 0.61, -1.29, 0.07, -0.53, -0.2]
+            robot.move_joints(*initial_pose)
 
-                # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
-                while robot.digital_read(DI5) == PinState.HIGH:
-                    robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
-                robot.stop_conveyor(conveyor_id)
+            gripper_status = "unknown"
+            central_pose = PoseObject(x=0.035, y=0.242, z=0.122, roll=-3.092, pitch=1.458, yaw=-1.413)
+            offsets = [
+                (-0.075, -0.075),  # Círculo inferior izquierdo
+                (0.075, -0.075),   # Círculo inferior derecho
+                (-0.075, 0.075)    # Círculo superior izquierdo
+            ]
 
-                # Discriminar el tipo de pieza según DI1
-                if robot.digital_read(DI1) == PinState.LOW:
-                    start_time_piece = time.time()
-                    while time.time() - start_time_piece < 8:
-                        robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
+            # Al principio de routine_auto (después de definir small_pieces...)
+            last = EstadoRobot.query.order_by(EstadoRobot.id.desc()).first()
+            if last:
+                small_pieces = last.small_pieces
+                large_pieces = last.large_pieces
+                offset_idx = small_pieces  # o calcula según tu lógica
+
+            try:
+                last_pose_time = time.time()
+
+                while small_pieces < 3 or large_pieces < 3:
+                    # Registrar la pose cada 0.2 segundos
+                    current_time = time.time()
+                    if current_time - last_pose_time >= 0.2:
+                        pose = robot.get_current_pose()
+                        publicar_estado({
+                            "small_pieces": small_pieces,
+                            "large_pieces": large_pieces,
+                            "belt_status": "running",
+                            "belt_speed": velocidad_cinta,
+                            "gripper_status": gripper_status,
+                            "sensor_DI1": "HIGH" if robot.digital_read(DI1) == PinState.HIGH else "LOW",
+                            "sensor_DI5": "HIGH" if robot.digital_read(DI5) == PinState.HIGH else "LOW",
+                            "pose": str(pose)
+                        })
+                        last_pose_time = current_time
+
+                    # Pausa si se ha pedido
+                    while pause_event.is_set() and not stop_event.is_set():
+                        time.sleep(0.1)
+
+                    # Paro definitivo si se ha pedido
+                    if stop_event.is_set():
+                        break
+
+                    # Avanzar la cinta hasta detectar la pieza (DI5 en LOW)
+                    while robot.digital_read(DI5) == PinState.HIGH:
+                        robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.FORWARD)
                     robot.stop_conveyor(conveyor_id)
-                    large_pieces += 1
-                else:
-                    robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                    robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
-                    gripper_status = "grasped"
-                    robot.grasp_with_tool()
-                    robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
 
-                    if small_pieces < len(offsets):
-                        current_offset = offsets[small_pieces]
+                    # Discriminar el tipo de pieza según DI1
+                    if robot.digital_read(DI1) == PinState.LOW:
+                        start_time_piece = time.time()
+                        while time.time() - start_time_piece < 8:
+                            robot.run_conveyor(conveyor_id, speed=100, direction=ConveyorDirection.BACKWARD)
+                        robot.stop_conveyor(conveyor_id)
+                        large_pieces += 1
                     else:
-                        current_offset = (0, 0)
+                        robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
+                        robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
+                        gripper_status = "grasped"
+                        robot.grasp_with_tool()
+                        robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
 
-                    paletize_pose = PoseObject(
-                        x=central_pose.x + current_offset[0],
-                        y=central_pose.y + current_offset[1],
-                        z=central_pose.z,
-                        roll=central_pose.roll,
-                        pitch=central_pose.pitch,
-                        yaw=central_pose.yaw,
-                    )
-                    robot.move_pose(central_pose)
-                    robot.move_pose(paletize_pose)
-                    gripper_status = "released"
-                    robot.release_with_tool()
-                    robot.move_pose(central_pose)
-                    robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
-                    small_pieces += 1
+                        if small_pieces < len(offsets):
+                            current_offset = offsets[small_pieces]
+                        else:
+                            current_offset = (0, 0)
 
-                # Actualizar progreso
-                with progress_lock:
-                    progress_data.update(
-                        small=small_pieces,
-                        large=large_pieces,
-                        offset_idx=offset_idx
-                    )
+                        paletize_pose = PoseObject(
+                            x=central_pose.x + current_offset[0],
+                            y=central_pose.y + current_offset[1],
+                            z=central_pose.z,
+                            roll=central_pose.roll,
+                            pitch=central_pose.pitch,
+                            yaw=central_pose.yaw,
+                        )
+                        robot.move_pose(central_pose)
+                        robot.move_pose(paletize_pose)
+                        gripper_status = "released"
+                        robot.release_with_tool()
+                        robot.move_pose(central_pose)
+                        robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
+                        small_pieces += 1
 
-        finally:
-            robot.stop_conveyor(conveyor_id)
-            robot.unset_conveyor(conveyor_id)
-            robot.close_connection()
+                    # Actualizar progreso
+                    with progress_lock:
+                        progress_data.update(
+                            small=small_pieces,
+                            large=large_pieces,
+                            offset_idx=offset_idx
+                        )
 
-        elapsed_time = time.time() - start_time
-        respuesta = {
-            "status": "finished",
-            "elapsed_time": round(elapsed_time, 2),
-            "small_pieces": small_pieces,
-            "large_pieces": large_pieces
-        }
-        return jsonify(respuesta)
+            finally:
+                robot.stop_conveyor(conveyor_id)
+                robot.unset_conveyor(conveyor_id)
+                robot.close_connection()
 
-    except Exception as e:
-        print(f"[ERROR AUTO] {e}")
-        abort(500, description=f"Error en modo automático: {str(e)}")
+            elapsed_time = time.time() - start_time
+            respuesta = {
+                "status": "finished",
+                "elapsed_time": round(elapsed_time, 2),
+                "small_pieces": small_pieces,
+                "large_pieces": large_pieces
+            }
+            return jsonify(respuesta)
+
+        except Exception as e:
+            print(f"[ERROR AUTO] {e}")
+            abort(500, description=f"Error en modo automático: {str(e)}")
 
 # ======== CONTROL FÍSICO ========
 
