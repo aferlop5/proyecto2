@@ -14,7 +14,7 @@ import time
 from pyniryo import NiryoRobot, ConveyorDirection
 
 # IP del robot real
-ROBOT_IP = "10.0.0.101"
+ROBOT_IP = "158.42.132.206"
 # Estado global de velocidad de la cinta (0-100)
 velocidad_cinta = 100
 
