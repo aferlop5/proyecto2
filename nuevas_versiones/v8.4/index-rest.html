@@ -45,7 +45,7 @@
       mostrarMensaje("Robot conectado correctamente");
     }
 
-    // Función para actualizar el contador en la UI
+    // Función para actualizar el contador y estados en la UI
     function updatePieceCounter() {
       fetch(`${API_BASE}/robot/counters`)
         .then(res => res.json())
@@ -75,39 +75,41 @@
               </div>
             </div>
         `;
-        // Inicia el cronómetro en el cliente
+        // Inicia el cronómetro usando una función recursiva con setTimeout
         const startTime = Date.now();
-        const timerInterval = setInterval(() => {
-            const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + elapsed + " s";
-            updatePieceCounter(); // Actualizar el contador periódicamente
-        }, 1000);
-
+        function updateTimer() {
+          const elapsed = Math.floor((Date.now() - startTime) / 1000);
+          document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + elapsed + " s";
+          updatePieceCounter(); // Actualiza el contador cada segundo
+          timerId = setTimeout(updateTimer, 1000);
+        }
+        let timerId = setTimeout(updateTimer, 1000);
+        
+        // Ejecuta la acción de modo automático
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
-            .then(res => res.json())
-            .then(data => {
-                clearInterval(timerInterval);
-                if (data.elapsed_time) {
-                    document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
-                }
-                // Actualización final del contador
-                updatePieceCounter();
-            })
-            .catch(() => {
-                clearInterval(timerInterval);
-                console.error("Error al ejecutar acción");
-            });
+          .then(res => res.json())
+          .then(data => {
+            clearTimeout(timerId); // Limpia el timeout cuando finaliza
+            if (data.elapsed_time) {
+              document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
+            }
+            updatePieceCounter(); // Actualización final del contador
+          })
+          .catch(error => {
+            clearTimeout(timerId);
+            console.error("Error al ejecutar acción en modo automático:", error);
+          });
       } else {
         // Acciones para el modo manual u otros
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
-            .then(res => res.json())
-            .then(data => {
-                if (accion === "modo/manual") {
-                    setManualControls(true);
-                    mostrarControlesManual();
-                }
-            })
-            .catch(() => console.error("Error al ejecutar acción"));
+          .then(res => res.json())
+          .then(data => {
+            if (accion === "modo/manual") {
+              setManualControls(true);
+              mostrarControlesManual();
+            }
+          })
+          .catch(() => console.error("Error al ejecutar acción"));
       }
     }
 
