@@ -9,7 +9,6 @@
 </head>
 <body>
   <h1>Panel de Control del Robot</h1>
-
   <div class="container">
     <!-- Fila 1 -->
     <div class="row">
@@ -27,15 +26,13 @@
         </div>
       </div>
     </div>
-
     <!-- Contenedor dinámico para controles según el modo -->
     <div id="modo-activo" class="row"></div>
   </div>
-
   <div id="respuesta"></div>
-
   <script>
     const API_BASE = "http://localhost:5000";
+    let autoTimer = null; // Variable global para el timer del modo automático
 
     function mostrarMensaje(msg) {
       document.getElementById("respuesta").innerText = msg;
@@ -45,7 +42,7 @@
       mostrarMensaje("Robot conectado correctamente");
     }
 
-    // Función para actualizar el contador y estados en la UI
+    // Función para actualizar el contador y estados en la UI, incluida la pose del robot
     function updatePieceCounter() {
       fetch(`${API_BASE}/robot/counters`)
         .then(res => res.json())
@@ -60,48 +57,77 @@
     }
 
     function accionRobot(accion) {
+      // Si se activa el modo automático, nos aseguramos de limpiar cualquier timer previo.
       if (accion === "modo/auto") {
+        if(autoTimer !== null) {
+          clearTimeout(autoTimer);
+          autoTimer = null;
+        }
         const modoActivo = document.getElementById("modo-activo");
         modoActivo.innerHTML = `
-            <div class="col">
-              <div class="seccion">
-                <h2>Contador de Piezas</h2>
-                <p id="pieceCounter">Caja pequeña: 0 | Caja grande: 0 | Desechadas: 0</p>
-              </div>
+          <div class="col">
+            <div class="seccion">
+              <h2>Contador de Piezas</h2>
+              <p id="pieceCounter">Caja pequeña: 0 | Caja grande: 0 | Desechadas: 0</p>
             </div>
-            <div class="col">
-              <div class="seccion">
-                <h2>Cronómetro</h2>
-                <p id="cronometro">Tiempo transcurrido: 0 s</p>
-              </div>
+          </div>
+          <div class="col">
+            <div class="seccion">
+              <h2>Estados en Tiempo Real</h2>
+              <p id="beltStatus">Cinta: -</p>
+              <p id="gripperStatus">Pinza: -</p>
+              <p id="sensorStatus">Sensores: -</p>
+              <p id="poseStatus">Pose: -</p>
             </div>
+          </div>
+          <div class="col">
+            <div class="seccion">
+              <h2>Cronómetro</h2>
+              <p id="cronometro">Tiempo transcurrido: 00:00</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="seccion">
+              <h2>Controles</h2>
+              <button onclick="pausarAutomatico()">Pausar Automático</button>
+              <button onclick="reanudarAutomatico()">Reanudar Automático</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="seccion">
+              <h2>Zona Avanzada</h2>
+              <p>Zona para funcionalidades avanzadas (opcional)</p>
+            </div>
+          </div>
         `;
-        // Inicia el cronómetro usando una función recursiva con setTimeout
+        // Inicia el cronómetro usando un setTimeout recursivo y guarda el id en autoTimer
         const startTime = Date.now();
         function updateTimer() {
           const elapsed = Math.floor((Date.now() - startTime) / 1000);
           document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + elapsed + " s";
-          updatePieceCounter(); // Actualiza el contador cada segundo
-          timerId = setTimeout(updateTimer, 1000);
+          updatePieceCounter(); // Actualiza cada segundo
+          autoTimer = setTimeout(updateTimer, 1000);
         }
-        let timerId = setTimeout(updateTimer, 1000);
-        
+        autoTimer = setTimeout(updateTimer, 1000);
+
         // Ejecuta la acción de modo automático
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
           .then(res => res.json())
           .then(data => {
-            clearTimeout(timerId); // Limpia el timeout cuando finaliza
+            // Se limpia el timer al finalizar la operación
+            clearTimeout(autoTimer);
+            autoTimer = null;
             if (data.elapsed_time) {
               document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
             }
             updatePieceCounter(); // Actualización final del contador
           })
           .catch(error => {
-            clearTimeout(timerId);
+            clearTimeout(autoTimer);
+            autoTimer = null;
             console.error("Error al ejecutar acción en modo automático:", error);
           });
-      } else {
-        // Acciones para el modo manual u otros
+      } else { // Modo manual y otros
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
           .then(res => res.json())
           .then(data => {
@@ -193,7 +219,7 @@
             if (!response.ok) {
               throw new Error("Error en la respuesta");
             }
-            return
+            return response.json();
           })
           .then(data => {
             document.getElementById("sensorOutput").innerText = `DI5: ${data.DI5}, DI1: ${data.DI1}`;
@@ -272,47 +298,12 @@
         </div>
       `;
     });
-
+    
     document.querySelector("button[onclick=\"accionRobot('modo/auto')\"]").addEventListener("click", () => {
-      const modoActivo = document.getElementById("modo-activo");
-      modoActivo.innerHTML = `
-        <div class="col">
-          <div class="seccion">
-            <h2>Contador de Piezas</h2>
-            <!-- Se asigna un id para luego actualizarlo -->
-            <p id="pieceCounter">Caja pequeña: 0 | Caja grande: 0 | Desechadas: 0</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="seccion">
-            <h2>Estados en Tiempo Real</h2>
-            <p id="beltStatus">Cinta: -</p>
-            <p id="gripperStatus">Pinza: -</p>
-            <p id="sensorStatus">Sensores: -</p>
-            <p id="poseStatus">Pose: -</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="seccion">
-            <h2>Cronómetro</h2>
-            <p id="cronometro">Tiempo transcurrido: 00:00</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="seccion">
-            <h2>Controles</h2>
-            <button onclick="pausarAutomatico()">Pausar Automático</button>
-            <button onclick="reanudarAutomatico()">Reanudar Automático</button>
-          </div>
-        </div>
-        <div class="col">
-          <div class="seccion">
-            <h2>Zona Avanzada</h2>
-            <p>Zona para funcionalidades avanzadas (opcional)</p>
-          </div>
-        </div>
-      `;
+      // Se delega a la función accionRobot('modo/auto') ya definida
+      accionRobot('modo/auto');
     });
+    
   </script>
 </body>
 </html>
