@@ -227,10 +227,8 @@ def grip_close():
         
 @robots.route("/robot/belt_speed/<int:porcentaje>", methods=["POST"])
 def set_belt_speed(porcentaje):
-    # Verificar que el robot esté en modo MANUAL, igual que en los demás controles
-    if not modo_manual_requerido():
-        return jsonify({"error": "Modo MANUAL requerido"}), 403
     global velocidad_cinta
+    # En la v1 no se requiere el modo manual para ajustar la velocidad
     if porcentaje not in [25, 50, 75, 100]:
         return jsonify({"error": "Velocidad no válida"}), 400
     velocidad_cinta = porcentaje
@@ -238,8 +236,7 @@ def set_belt_speed(porcentaje):
 
 @robots.route("/robot/belt_forward", methods=["POST"])
 def belt_forward():
-    if not modo_manual_requerido():
-        return jsonify({"error": "Modo MANUAL requerido"}), 403
+    # Se elimina la verificación de modo manual, comportamiento similar a v1
     robot = NiryoRobot(ROBOT_IP)
     conveyor_id = robot.set_conveyor()
     robot.run_conveyor(conveyor_id, speed=velocidad_cinta, direction=ConveyorDirection.FORWARD)
@@ -248,8 +245,7 @@ def belt_forward():
 
 @robots.route("/robot/belt_backward", methods=["POST"])
 def belt_backward():
-    if not modo_manual_requerido():
-        return jsonify({"error": "Modo MANUAL requerido"}), 403
+    # Se elimina la verificación de modo manual, comportamiento similar a v1
     robot = NiryoRobot(ROBOT_IP)
     conveyor_id = robot.set_conveyor()
     robot.run_conveyor(conveyor_id, speed=velocidad_cinta, direction=ConveyorDirection.BACKWARD)
@@ -258,9 +254,7 @@ def belt_backward():
 
 @robots.route("/robot/belt_stop", methods=["POST"])
 def belt_stop():
-    if not modo_manual_requerido():
-        return jsonify({"error": "Modo MANUAL requerido"}), 403
-
+    # Se elimina la verificación de modo manual, comportamiento similar a v1
     try:
         robot = NiryoRobot(ROBOT_IP)
         conveyor_id = robot.set_conveyor()
@@ -268,7 +262,6 @@ def belt_stop():
         robot.unset_conveyor(conveyor_id)
         robot.close_connection()
         return jsonify({"message": "Cinta detenida"})
-
     except Exception as e:
         print(f"[ERROR PARO CINTA] {e}")
         return jsonify({"error": "No se pudo detener la cinta"}), 500
