@@ -53,6 +53,7 @@
           document.getElementById("pieceCounter").innerText =
             `Caja pequeña: ${data.small} | Caja grande: ${data.large} | Desechadas: ${data.large}`;
           document.getElementById("beltStatus").innerText = `Cinta: ${data.belt}`;
+          document.getElementById("gripperStatus").innerText = `Pinza: ${data.gripper}`;
         })
         .catch(err => console.error("Error al obtener contadores:", err));
     }

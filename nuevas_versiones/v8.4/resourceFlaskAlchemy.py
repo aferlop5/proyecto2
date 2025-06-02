@@ -17,7 +17,8 @@ from pyniryo import NiryoRobot, ConveyorDirection
 ROBOT_IP = "158.42.132.206"
 # Estado global de velocidad de la cinta (0-100)
 velocidad_cinta = 100
-belt_status = "apagada"  # Nuevo: estado de la cinta
+belt_status = "apagada"  # Estado de la cinta
+gripper_status = "abierta"  # Nuevo: Estado de la pinza
 auto_counters = {
     "small": 0,
     "large": 0
@@ -66,7 +67,7 @@ def set_modo_manual(id):
 
 @robots.route("/robots/<int:id>/modo/auto", methods=["POST"])
 def set_modo_auto(id):
-    global belt_status  # Declarar uso de la variable global
+    global belt_status, gripper_status  # Declarar uso de las variables globales
     robot_record = Robots.query.filter_by(robot_id=id).first()
     if not robot_record:
         return jsonify({"error": "Robot no encontrado"}), 404
@@ -138,6 +139,7 @@ def set_modo_auto(id):
                 robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
                 robot.move_joints(0.47, -0.66, -0.28, -0.01, -0.6, -0.16)
                 robot.grasp_with_tool()
+                gripper_status = "cerrada"  # Actualiza la pinza a cerrada
                 robot.move_joints(0.99, -0.225, -0.513, -0.038, -0.632, -0.026)
                 if small_pieces < len(offsets):
                     current_offset = offsets[small_pieces]
@@ -154,6 +156,7 @@ def set_modo_auto(id):
                 robot.move_pose(central_pose)
                 robot.move_pose(paletize_pose)
                 robot.release_with_tool()
+                gripper_status = "abierta"  # Actualiza la pinza a abierta
                 robot.move_pose(central_pose)
                 robot.move_joints(0.057, 0.098, -0.213, -0.075, -1.447, 0.06)
                 small_pieces += 1
@@ -346,7 +349,8 @@ def get_counters():
     return jsonify({
         "small": auto_counters["small"],
         "large": auto_counters["large"],
-        "belt": belt_status  # Se muestra el estado actualizado de la cinta
+        "belt": belt_status,  # Estado de la cinta
+        "gripper": gripper_status  # Estado de la pinza
     })
 
 
