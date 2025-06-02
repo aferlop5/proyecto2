@@ -54,6 +54,7 @@
             `Caja pequeña: ${data.small} | Caja grande: ${data.large} | Desechadas: ${data.large}`;
           document.getElementById("beltStatus").innerText = `Cinta: ${data.belt}`;
           document.getElementById("gripperStatus").innerText = `Pinza: ${data.gripper}`;
+          document.getElementById("poseStatus").innerText = `Pose: ${JSON.stringify(data.pose)}`;
         })
         .catch(err => console.error("Error al obtener contadores:", err));
     }
@@ -192,7 +193,7 @@
             if (!response.ok) {
               throw new Error("Error en la respuesta");
             }
-            return response.json();
+            return
           })
           .then(data => {
             document.getElementById("sensorOutput").innerText = `DI5: ${data.DI5}, DI1: ${data.DI1}`;
