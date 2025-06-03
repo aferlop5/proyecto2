@@ -63,11 +63,10 @@
     }
 
     function accionRobot(accion) {
-      // Si se activa el modo automático, nos aseguramos de limpiar cualquier timer previo.
       if (accion === "modo/auto") {
-        if(autoTimer !== null) {
-          clearTimeout(autoTimer);
-          autoTimer = null;
+        if (autoTimer !== null) {
+            clearTimeout(autoTimer);
+            autoTimer = null;
         }
         const modoActivo = document.getElementById("modo-activo");
         modoActivo.innerHTML = `
@@ -99,52 +98,43 @@
               <button onclick="reanudarAutomatico()">Reanudar Automático</button>
             </div>
           </div>
-          <div class="col">
-            <div class="seccion">
-              <h2>Zona Avanzada</h2>
-              <p>Zona para funcionalidades avanzadas (opcional)</p>
-            </div>
-          </div>
         `;
-        // Inicia el cronómetro usando un setTimeout recursivo y guarda el id en autoTimer
         const startTime = Date.now();
         function updateTimer() {
-          const elapsed = Math.floor((Date.now() - startTime) / 1000);
-          document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + elapsed + " s";
-          updatePieceCounter(); // Actualiza cada segundo
-          autoTimer = setTimeout(updateTimer, 1000);
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + elapsed + " s";
+            updatePieceCounter();
+            autoTimer = setTimeout(updateTimer, 1000);
         }
         autoTimer = setTimeout(updateTimer, 1000);
 
-        // Ejecuta la acción de modo automático
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
-          .then(res => res.json())
-          .then(data => {
-            // Se limpia el timer al finalizar la operación
-            clearTimeout(autoTimer);
-            autoTimer = null;
-            if (data.elapsed_time) {
-              document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
-            }
-            updatePieceCounter(); // Actualización final del contador
-          })
-          .catch(error => {
-            clearTimeout(autoTimer);
-            autoTimer = null;
-            console.error("Error al ejecutar acción en modo automático:", error);
-          });
-      } else { // Modo manual y otros
+            .then(res => res.json())
+            .then(data => {
+                clearTimeout(autoTimer);
+                autoTimer = null;
+                if (data.elapsed_time) {
+                    document.getElementById("cronometro").innerText = "Tiempo transcurrido: " + data.elapsed_time + " s";
+                }
+                updatePieceCounter();
+            })
+            .catch(error => {
+                clearTimeout(autoTimer);
+                autoTimer = null;
+                console.error("Error al ejecutar acción en modo automático:", error);
+            });
+    } else {
         fetch(`${API_BASE}/robots/1/${accion}`, { method: "POST" })
-          .then(res => res.json())
-          .then(data => {
-            if (accion === "modo/manual") {
-              setManualControls(true);
-              mostrarControlesManual();
-            }
-          })
-          .catch(() => console.error("Error al ejecutar acción"));
-      }
+            .then(res => res.json())
+            .then(data => {
+                if (accion === "modo/manual") {
+                    setManualControls(true);
+                    mostrarControlesManual();
+                }
+            })
+            .catch(() => console.error("Error al ejecutar acción"));
     }
+}
 
     function mostrarControlesManual() {
       const modoActivo = document.getElementById("modo-activo");

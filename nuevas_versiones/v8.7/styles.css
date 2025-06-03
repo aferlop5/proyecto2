@@ -2,13 +2,14 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     margin: 0 auto;
-    background-color: #f9f9f9; /* Fondo gris muy claro */
+    background-color: #f3f4ea; /* Fondo terciario/base */
+    color: #0c445e; /* Texto secundario */
     text-align: center;
 }
 
 h1, h2 {
     font-family: 'Poppins', sans-serif; /* Fuente moderna */
-    color: #222222; /* Títulos en gris oscuro casi negro */
+    color: #0c445e; /* Títulos en color secundario */
     text-transform: uppercase; /* Texto en mayúsculas */
     letter-spacing: 1px; /* Espaciado entre letras */
     font-weight: 600; /* Peso más marcado */
@@ -18,7 +19,7 @@ h1, h2 {
 h1 {
     font-family: 'Oswald', sans-serif; /* Fuente llamativa y moderna */
     font-size: 2.5rem; /* Tamaño más grande */
-    color: #222222; /* Gris oscuro casi negro */
+    color: #0c445e; /* Color secundario */
     text-transform: uppercase; /* Texto en mayúsculas */
     letter-spacing: 2px; /* Más separación entre letras */
     font-weight: 600; /* Peso más marcado */
@@ -27,7 +28,7 @@ h1 {
     position: relative; /* Para posicionar la línea decorativa */
 
     /* Línea decorativa debajo del título */
-    border-bottom: 3px solid #5c7c8a; /* Línea azul grisáceo */
+    border-bottom: 3px solid #346981; /* Línea decorativa en color primario */
     padding-bottom: 10px; /* Espacio entre el texto y la línea */
 }
 
@@ -65,16 +66,17 @@ h2 {
 }
 
 .seccion {
-    background: #ffffff; /* Fondo blanco */
+    background: #ffffff; /* Fondo blanco para secciones */
     padding: 15px;
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     border: 1px solid #e0e0e0; /* Bordes suaves */
+    color: #0c445e; /* Texto secundario */
     text-align: center;
 }
 
 button {
-    background-color: #5c7c8a; /* Azul grisáceo */
+    background-color: #346981; /* Color primario */
     color: #ffffff; /* Texto blanco */
     padding: 10px 15px;
     margin: 5px;
@@ -86,18 +88,17 @@ button {
 }
 
 button:hover {
-    background-color: #49606e; /* Azul grisáceo más oscuro */
+    background-color: #0c445e; /* Color secundario */
 }
 
 button:disabled {
     background-color: #cfd8dc; /* Gris azulado claro */
     color: #666666; /* Texto gris */
-    cursor: not-allowed;
 }
 
 /* Botón Modo Manual */
 button.modo-manual {
-  background-color: #4b5d67; /* Azul grisáceo oscuro */
+  background-color: #0c445e; /* Color secundario */
   color: #ffffff; /* Texto blanco */
   font-family: 'Poppins', sans-serif; /* Fuente moderna */
   text-transform: uppercase; /* Texto en mayúsculas */
@@ -109,12 +110,12 @@ button.modo-manual {
 }
 
 button.modo-manual:hover {
-  background-color: #3a4a54; /* Azul grisáceo más oscuro al pasar el ratón */
+  background-color: #346981; /* Color primario */
 }
 
 /* Botón Modo Automático */
 button.modo-automatico {
-  background-color: #2e7d32; /* Verde oscuro */
+  background-color: #346981; /* Color primario */
   color: #ffffff; /* Texto blanco */
   font-family: 'Poppins', sans-serif; /* Fuente moderna */
   text-transform: uppercase; /* Texto en mayúsculas */
@@ -126,14 +127,14 @@ button.modo-automatico {
 }
 
 button.modo-automatico:hover {
-  background-color: #255d27; /* Verde más oscuro al pasar el ratón */
+  background-color: #0c445e; /* Color secundario */
 }
 
 /* Panel Modo Manual */
 .panel-manual {
   background-color: #ffffff; /* Fondo blanco */
-  border: 1px solid #4b5d67; /* Borde azul grisáceo */
-  border-left: 4px solid #4b5d67; /* Distintivo en el borde izquierdo */
+  border: 1px solid #0c445e; /* Borde secundario */
+  border-left: 4px solid #0c445e; /* Distintivo en el borde izquierdo */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 2px 8px rgba(75, 93, 103, 0.2); /* Sombra suave */
   padding: 20px; /* Espaciado interno */
@@ -144,8 +145,8 @@ button.modo-automatico:hover {
 /* Panel Modo Automático */
 .panel-automatico {
   background-color: #ffffff; /* Fondo blanco */
-  border: 1px solid #2e7d32; /* Borde verde oscuro */
-  border-left: 4px solid #2e7d32; /* Distintivo en el borde izquierdo */
+  border: 1px solid #346981; /* Borde primario */
+  border-left: 4px solid #346981; /* Distintivo en el borde izquierdo */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2); /* Sombra suave */
   padding: 20px; /* Espaciado interno */
@@ -154,7 +155,7 @@ button.modo-automatico:hover {
 }
 
 #respuesta {
-    color: #222222; /* Texto en gris oscuro */
+    color: #0c445e; /* Texto secundario */
     font-weight: bold;
     margin-top: 10px;
 }
@@ -164,13 +165,13 @@ button.modo-automatico:hover {
     padding: 10px; /* Espaciado interno */
     border: 1px solid #e0e0e0; /* Borde suave */
     border-radius: 6px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Fondo ligeramente distinto */
+    background-color: #f3f4ea; /* Fondo terciario/base */
 }
 
 .control-group h3 {
+    color: #0c445e; /* Texto secundario */
     font-family: 'Poppins', sans-serif; /* Fuente moderna */
     font-size: 14px; /* Tamaño reducido */
-    color: #555555; /* Color más suave */
     text-transform: uppercase; /* Texto en mayúsculas */
     letter-spacing: 1px; /* Espaciado entre letras */
     font-weight: 500; /* Peso más ligero */
@@ -194,6 +195,30 @@ button.modo-automatico:hover {
   margin-left: auto; /* Centrar horizontalmente */
   margin-right: auto; /* Centrar horizontalmente */
   transition: all 0.3s ease; /* Transición suave */
+}
+
+#modo-activo .col {
+    display: flex;
+    flex-direction: column; /* Asegura que los hijos se apilen verticalmente */
+    justify-content: stretch; /* Permite que los hijos se expandan */
+}
+
+#modo-activo .seccion {
+    flex: 1; /* Hace que la tarjeta se expanda para llenar el espacio disponible */
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido interno se apile verticalmente */
+    justify-content: space-between; /* Distribuye el contenido interno */
+}
+
+#modo-activo .seccion:has(#velocidad) {
+    justify-content: flex-start; /* Contenido alineado arriba */
+    align-items: center; /* Centrado horizontalmente */
+    gap: 16px; /* Separación vertical entre elementos */
+}
+
+#modo-activo #velocidad {
+    width: 80%; /* Ancho relativo para evitar que sea demasiado largo */
+    max-width: 200px; /* Ancho máximo opcional */
 }
 
 @media (max-width: 768px) {
